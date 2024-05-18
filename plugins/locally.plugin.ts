@@ -15,6 +15,14 @@ export default defineNuxtPlugin(() => {
         } else {
           return undefined
         }
+      },
+
+      removeItem(key: string) {
+        if (process.client) {
+          return localStorage.removeItem(key);
+        } else {
+          return undefined;
+        }
       }
     }
   }
