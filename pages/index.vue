@@ -6,6 +6,7 @@
 </template>
 
 <script setup lang="ts">
+import { UserService } from "@/core/services/user.service";
 
 
 </script>

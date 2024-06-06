@@ -3,9 +3,9 @@ export default defineNuxtPlugin(() => {
     provide: {
       getItem(key: string) {
         if (process.client) {
-          return localStorage.getItem(key)
+          return localStorage.getItem(key);
         } else {
-          return undefined
+          return undefined;
         }
       },
 
@@ -13,7 +13,7 @@ export default defineNuxtPlugin(() => {
         if (process.client) {
           return localStorage.setItem(key, value);
         } else {
-          return undefined
+          return undefined;
         }
       },
 
@@ -23,7 +23,7 @@ export default defineNuxtPlugin(() => {
         } else {
           return undefined;
         }
-      }
+      },
     }
   }
 })
