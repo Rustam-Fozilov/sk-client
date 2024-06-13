@@ -1,14 +1,9 @@
 <template>
   <div>
-    <h1>THIS IS MAIN PAGE</h1>
+
   </div>
 </template>
 
 <script setup lang="ts">
-
-definePageMeta({
-  layout: "main-layout"
-})
-
 
 </script>
