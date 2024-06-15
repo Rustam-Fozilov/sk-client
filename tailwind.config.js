@@ -17,8 +17,10 @@ export default {
       'soft-white': '#F5F5F7',
       'soft-gray': '#E9E9E9',
       'primary-blue': '#007AFF',
+    },
+    fontSize: {
+      'md': '48px'
     }
   },
   plugins: [],
 }
-

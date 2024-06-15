@@ -1,5 +1,5 @@
 <template>
-  <div :style="`width: ${width}; height: ${height}; color: black;`">
+  <div class="cursor-pointer" @click="gotoMain" :style="`width: ${width}; height: ${height}; color: black;`">
     <img class="w-full h-full object-cover" src="@/assets/images/logo.svg" alt="LOGO"/>
   </div>
 </template>
@@ -23,5 +23,9 @@ defineProps({
     default: 'black',
   },
 })
+
+const gotoMain = () => {
+  window.location.href = '/';
+}
 
 </script>

@@ -3,7 +3,7 @@
     <div class="p-6 flex justify-between my-container border-b-[1px] border-opacity-20">
       <div id="breadcrumbs" class="cursor-pointer">
         <div class="bg-soft-gray w-12 h-12 rounded-full flex items-center justify-center">
-          <div class="flex flex-col gap-[6px]">
+          <div class="flex flex-col gap-[5px]">
             <div class="bg-black h-[2px] w-[10px] rounded-full"></div>
             <div class="bg-black h-[2px] w-[20px] rounded-full"></div>
             <div class="bg-black h-[2px] w-[10px] rounded-full ml-[10px]"></div>
