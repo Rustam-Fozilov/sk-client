@@ -23,4 +23,11 @@ html, body {
         width: 1780px;
         margin: 0 auto;
     }
+
+    .title {
+        @apply font-tt-medium;
+        @apply text-3xl;
+        @apply tracking-tight;
+        line-height: normal;
+    }
 }

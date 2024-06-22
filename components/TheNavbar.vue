@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed backdrop-blur-3xl w-full">
+  <div class="fixed backdrop-blur-2xl w-full z-10">
     <div class="py-6 flex justify-between my-container border-b-[1px] border-opacity-20">
       <div id="breadcrumbs" class="cursor-pointer">
         <div class="bg-soft-gray w-12 h-12 rounded-full flex items-center justify-center">
@@ -11,12 +11,12 @@
         </div>
       </div>
       <div id="auth_action" class="flex gap-[10px]">
-        <BtnSecondary>
+        <BtnSecondary class-name="hover:bg-opacity-70 transition duration-300">
           <template #btn-secondary>
             Ro'yhatdan o'tish
           </template>
         </BtnSecondary>
-        <BtnPrimary>
+        <BtnPrimary class-name="hover:bg-opacity-70 transition duration-300">
           <template #btn-primary>
             Kirish
           </template>
