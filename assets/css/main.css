@@ -2,13 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@font-face {
+    font-family: 'tt-medium';
+    src: url('../fonts/tt-hoves-pro/TT Hoves Pro Trial Medium.ttf');
+}
+
+@font-face {
+    font-family: 'tt-regular';
+    src: url('../fonts/tt-hoves-pro/TT Hoves Pro Trial Regular.ttf');
+}
+
+
 html, body {
     background-color: theme('colors.soft-white');
 }
 
 @layer components {
     .my-container {
-        width: 1820px;
+        width: 1780px;
         margin: 0 auto;
     }
 }
