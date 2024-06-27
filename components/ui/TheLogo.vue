@@ -1,6 +1,9 @@
 <template>
-  <div class="cursor-pointer" @click="gotoMain" :style="`width: ${width}; height: ${height}; color: black;`">
+  <div v-if="color === 'black'" class="cursor-pointer" @click="gotoMain" :style="`width: ${width}; height: ${height}; color: black;`">
     <img class="w-full h-full object-cover" src="@/assets/images/logo.svg" alt="LOGO"/>
+  </div>
+  <div v-if="color === 'white'" class="cursor-pointer" @click="gotoMain" :style="`width: ${width}; height: ${height}; color: black;`">
+    <img class="w-full h-full object-cover" src="@/assets/images/logo-white.svg" alt="LOGO"/>
   </div>
 </template>
 

@@ -30,4 +30,10 @@ html, body {
         @apply tracking-tight;
         line-height: normal;
     }
+
+    .sub-title {
+        @apply font-tt-medium;
+        @apply text-md;
+        line-height: normal;
+    }
 }

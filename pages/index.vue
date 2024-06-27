@@ -44,7 +44,7 @@
       </div>
 
       <div class="mt-24">
-        <faq/>
+        <q-a/>
       </div>
     </div>
 
@@ -56,9 +56,9 @@
 
 <script setup lang="ts">
 import SearchIcon from "~/components/ui/SearchIcon.vue";
-import TopUniversities from "~/components/modules/top-universities.vue";
-import BlogCard from "~/components/modules/blog-card.vue";
-import Faq from "~/components/modules/faq.vue";
+import TopUniversities from "~/components/modules/TopUniversities.vue";
+import BlogCard from "~/components/modules/BlogCard.vue";
+import QA from "~/components/modules/QA.vue";
 
 definePageMeta({
   layout: "main-layout"

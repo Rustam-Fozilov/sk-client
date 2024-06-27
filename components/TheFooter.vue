@@ -17,12 +17,12 @@
     <div class="mt-24 w-full px-12 py-16 text-md bg-soft-blue font-tt-medium text-white">
       <div class="flex justify-between">
         <div>
-          LOGO
+          <the-logo color="white" width="80px"/>
         </div>
         <div class="flex gap-5">
-          <div>FB</div>
-          <div>INSTA</div>
-          <div>TG</div>
+          <a href="">FB</a>
+          <a href="">INSTA</a>
+          <a href="">TG</a>
         </div>
       </div>
 
