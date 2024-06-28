@@ -31,6 +31,12 @@ html, body {
         line-height: normal;
     }
 
+    .mid-title {
+        @apply font-tt-medium;
+        @apply text-xl;
+        line-height: normal;
+    }
+
     .sub-title {
         @apply font-tt-medium;
         @apply text-md;
