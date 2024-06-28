@@ -8,7 +8,7 @@
             <img class="h-12 object-cover rounded-full w-36" src="../assets/images/main/title.png" alt="Title image">
             <div class="m-0 p-0 text-wrap"  style="line-height: normal;">Amerika universitetlariga kirish</div>
           </div>
-          <div class="p-0 m-0"  style="line-height: normal;">
+          <div class="p-0 m-0" style="line-height: normal;">
             va to'liq grant yutish bo'yicha
           </div>
           <div class="flex items-end gap-2 text-nowrap"  style="line-height: normal;">
