@@ -4,6 +4,11 @@
 
 
 @font-face {
+    font-family: 'tt-bold';
+    src: url('../fonts/tt-hoves-pro/TT Hoves Pro Trial Bold.ttf');
+}
+
+@font-face {
     font-family: 'tt-medium';
     src: url('../fonts/tt-hoves-pro/TT Hoves Pro Trial Medium.ttf');
 }
@@ -20,7 +25,7 @@ html, body {
 
 @layer components {
     .my-container {
-        width: 1780px;
+        width: 93%;
         margin: 0 auto;
     }
 
@@ -42,4 +47,10 @@ html, body {
         @apply text-md;
         line-height: normal;
     }
+    
+    /*@media only screen and (max-width: 1785px) {*/
+    /*    .my-container {*/
+    /*        width: 90%;*/
+    /*    }*/
+    /*}*/
 }

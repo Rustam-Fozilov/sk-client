@@ -33,14 +33,22 @@
             <div>
               <form action="">
                 <div class="border-[1px] border-black border-opacity-20 rounded-full w-fit bg-soft-white px-7 py-4 flex gap-3 items-center justify-start">
-                  <search-icon width="22px"/>
+                  <search-icon width="22px" class="opacity-70"/>
                   <input type="text" placeholder="Qidiruv..." class="outline-none bg-transparent sub-title">
                 </div>
               </form>
             </div>
           </div>
-          <div class="mt-8">
-            Saralash
+          <div class="mt-8 font-tt-regular flex gap-2">
+            <div class="opacity-70">Saralash:</div>
+            <div class="font-tt-medium cursor-pointer hover:opacity-100">Yangi qo'shilganlar</div>
+            <div class="cursor-pointer opacity-70 hover:opacity-100 transition duration-300">Mashxurlar</div>
+          </div>
+        </div>
+
+        <div id="university_cards">
+          <div class="mt-12">
+            <university-list/>
           </div>
         </div>
       </div>
