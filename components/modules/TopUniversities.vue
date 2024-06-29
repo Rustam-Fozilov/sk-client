@@ -5,9 +5,9 @@
         <div class="title">
           Top universitetlar
         </div>
-        <a href="/universities/" class="hover:underline">
+        <NuxtLink to="/universities/" class="hover:underline">
           Barchasini ko'rish
-        </a>
+        </NuxtLink>
       </div>
 
       <div class="flex justify-start gap-5">

@@ -1,6 +1,7 @@
 <template>
   <div>
     <div
+        @click="gotoUniversity"
         @mouseover="isMouseOveredToCard = true"
         @mouseleave="isMouseOveredToCard = false"
         :style="`width: ${width}; height: ${height}`"
@@ -35,6 +36,7 @@
 
 <script setup lang="ts">
 import LocationIcon from "~/components/ui/LocationIcon.vue";
+import { useRouter } from "vue-router";
 
 defineProps({
   width: {
@@ -49,5 +51,10 @@ defineProps({
 });
 
 const isMouseOveredToCard = ref(false);
+const router = useRouter();
+
+const gotoUniversity = () => {
+  router.push('/universities/stanford-university');
+}
 
 </script>
