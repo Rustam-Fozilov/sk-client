@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img :width="width" :height="height" src="../../assets/images/svg/search-icon.svg" alt="Search icon" class="max-w-none">
+    <img :width="width" :height="height" src="../../assets/images/svg/save-icon.svg" alt="Save icon" class="max-w-none">
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="bg-soft-gray py-[14px] px-9 rounded-full" :class="className">
+    <button class="bg-soft-gray py-[14px] px-9 rounded-full hover:bg-opacity-70 transition duration-300" :class="className">
       <slot name="btn-secondary"></slot>
     </button>
   </div>

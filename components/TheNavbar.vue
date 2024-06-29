@@ -11,12 +11,12 @@
         </div>
       </div>
       <div id="auth_action" class="flex gap-[10px]">
-        <BtnSecondary class-name="hover:bg-opacity-70 transition duration-300">
+        <BtnSecondary>
           <template #btn-secondary>
             Ro'yhatdan o'tish
           </template>
         </BtnSecondary>
-        <BtnPrimary class-name="hover:bg-opacity-70 transition duration-300">
+        <BtnPrimary>
           <template #btn-primary>
             Kirish
           </template>
