@@ -10,8 +10,8 @@
         </NuxtLink>
       </div>
 
-      <div class="flex justify-start gap-5">
-        <university-list :universities="[1, 2, 3, 4]"/>
+      <div>
+        <university-carousel-list/>
       </div>
     </div>
   </div>

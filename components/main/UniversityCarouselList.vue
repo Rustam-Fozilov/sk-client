@@ -1,13 +1,14 @@
 <template>
   <div>
-    <div v-if="realWidth > 0" class="flex gap-5 flex-wrap">
-      <university-card v-for="university in universities" :university="university" :width="`${realWidth}px`" :height="`${realWidth}px`"/>
-    </div>
+    <carousel v-if="realWidth > 0" class="flex gap-5 flex-wrap" items-to-show="4" autoplay="2000">
+      <slide v-for="university in universities" key="university">
+        <university-card :university="university" :width="`${realWidth}px`" :height="`${realWidth}px`"/>
+      </slide>
+    </carousel>
   </div>
 </template>
 
 <script setup lang="ts">
-
 defineProps({
   universities: {
     required: false,

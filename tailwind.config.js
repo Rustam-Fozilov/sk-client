@@ -38,6 +38,7 @@ export default {
     },
     screens: {
       '2xl': {'max': '1536px'},
+      '2xls': {'max': '1326px'},
       'xl': {'max': '1280px'},
       'lg': {'max': '1024px'},
       'md': {'max': '768px'},

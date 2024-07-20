@@ -2,16 +2,16 @@
   <div>
     <div class="my-container">
 <!--      TOP HEADER-->
-      <div class="flex justify-between mt-7">
+      <div class="flex justify-between mt-7 gap-2 2xls:flex-col 2xl:items-center">
         <div class="title">
-          <div class="flex items-center gap-2 mt-[102px]">
-            <img class="h-12 object-cover rounded-full w-36" src="../assets/images/main/title.png" alt="Title image">
-            <div class="m-0 p-0 text-wrap"  style="line-height: normal;">Amerika universitetlariga kirish</div>
+          <div class="flex items-center gap-2 mt-[102px] 2xls:text-center 2xls:justify-center">
+            <img class="h-12 object-cover rounded-full w-36 2xls:w-28 2xls:h-10" src="../assets/images/main/title.png" alt="Title image">
+            <div class="m-0 p-0 2xls:text-center"  style="line-height: normal;">Amerika universitetlariga kirish</div>
           </div>
-          <div class="p-0 m-0" style="line-height: normal;">
+          <div class="p-0 m-0 text-wrap 2xls:text-center" style="line-height: normal;">
             va to'liq grant yutish bo'yicha
           </div>
-          <div class="flex items-end gap-2 text-nowrap"  style="line-height: normal;">
+          <div class="flex items-end gap-2 text-nowrap 2xls:flex-col 2xls:items-center"  style="line-height: normal;">
             <div>batafsil qo'llanma</div>
             <div class="w-80 border border-black border-opacity-20 h-12 rounded-full flex items-center justify-between p-5 hover:border-opacity-70 transition duration-300">
               <search-icon/>
@@ -24,14 +24,35 @@
               <div class="text-rg font-tt-regular tracking-normal">Ctrl + K</div>
             </div>
           </div>
-          <div class="w-full flex justify-end mt-5 text-sm font-tt-regular tracking-normal opacity-80 text-wrap">
-            <div class="w-[60%]">
+          <div class="w-full flex justify-end mt-5 text-sm font-tt-regular tracking-normal opacity-80 text-wrap 2xls:justify-center 2xls:mb-5">
+            <div class="w-[60%] 2xls:text-center">
               Amerika universitetlarida mutlaqo bepul o’qish uchun batafsil qo’llanma, yohud qanday qilib amerikaga surish mumkin.
             </div>
           </div>
         </div>
-        <div class="w-5/12 h-full">
-          <img class="w-full h-full object-cover rounded-3xl" src="../assets/images/main/banner.png" alt="Banner">
+        <div class="w-5/12 h-full 2xls:w-full">
+          <img class="w-full h-full object-cover rounded-3xl" src="/assets/images/main/banner.png" alt="Banner">
+          <div class="relative w-auto -top-[4.5rem] h-full right-5 flex justify-end">
+            <div
+                @mouseover="isHoverToUniversBtn = true"
+                @mouseleave="isHoverToUniversBtn = false"
+                @click="gotoUniversities"
+                class="flex cursor-pointer"
+            >
+              <div class="bg-white py-[14px] px-9 rounded-full">
+                Universitetlar
+              </div>
+              <div
+                  id="arrow_btn"
+                  :class="{'rotate-45': isHoverToUniversBtn}"
+                  class="rounded-full bg-white w-12 h-12 flex justify-center items-center transition duration-200"
+              >
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12.5066 1.3934C12.5066 0.896341 12.1037 0.493398 11.6066 0.493398L3.5066 0.493398C3.00955 0.493398 2.6066 0.896342 2.6066 1.3934C2.6066 1.89045 3.00955 2.2934 3.5066 2.2934L10.7066 2.2934L10.7066 9.4934C10.7066 9.99045 11.1095 10.3934 11.6066 10.3934C12.1037 10.3934 12.5066 9.99045 12.5066 9.4934L12.5066 1.3934ZM1.6364 12.6364L12.243 2.02979L10.9702 0.757002L0.363604 11.3636L1.6364 12.6364Z" fill="black"/>
+                </svg>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -62,15 +83,20 @@ import QA from "~/components/modules/QA.vue";
 
 definePageMeta({
   layout: "main-layout"
-})
+});
+
+const isHoverToUniversBtn = ref(false);
+const router = useRouter();
+
+const gotoUniversities = () => {
+  router.push('/universities')
+}
 
 </script>
 
 <style scoped>
-
 #search-input::placeholder {
   color: black;
   opacity: 1;
 }
-
 </style>

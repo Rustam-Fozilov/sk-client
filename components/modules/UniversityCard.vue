@@ -12,16 +12,20 @@
           <save-icon/>
         </div>
         <div class="w-full">
-          <div class="bg-white p-5 w-full rounded-2xl flex justify-between">
-            <div>
-              <div class="sub-title">Harvard University</div>
+          <div class="bg-white p-5 w-full rounded-2xl flex gap-1 justify-between">
+            <div class="text-ellipsis overflow-hidden whitespace-nowrap">
+              <div class="sub-title text-ellipsis overflow-hidden whitespace-nowrap">
+                Harvard University
+              </div>
               <div class="flex gap-1 items-center">
                 <location-icon width="12"/>
-                <div>Cambridge</div>
+                <div class="text-ellipsis overflow-hidden whitespace-nowrap">
+                  Cambridge
+                </div>
               </div>
             </div>
             <div
-                class="rounded-full w-12 h-12 flex items-center justify-center transition duration-300"
+                class="rounded-full min-w-12 h-12 flex items-center justify-center transition duration-300"
                 :class="isMouseOveredToCard ? 'bg-black' : ''"
             >
               <arrow-black-icon width="15" v-if="!isMouseOveredToCard"/>
