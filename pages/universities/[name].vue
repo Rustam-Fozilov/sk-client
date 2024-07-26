@@ -56,6 +56,10 @@
     <div class="mt-24">
       <the-footer/>
     </div>
+
+    <div>
+      <comments-modal/>
+    </div>
   </div>
 </template>
 
