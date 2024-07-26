@@ -8,8 +8,9 @@
         class="bg-red-300 cursor-pointer rounded-3xl bg-[url('/assets/images/main/banner.png')] bg-cover p-5"
     >
       <div class="flex flex-col justify-between h-full items-end">
-        <div>
-          <save-icon/>
+        <div @click.stop="toggleSaved">
+          <save-icon v-if="!isSaved"/>
+          <save-yellow-icon v-if="isSaved"/>
         </div>
         <div class="w-full">
           <div class="bg-white p-5 w-full rounded-2xl flex gap-1 justify-between">
@@ -56,9 +57,14 @@ defineProps({
 
 const isMouseOveredToCard = ref(false);
 const router = useRouter();
+const isSaved = ref(false);
 
 const gotoUniversity = () => {
   router.push('/universities/stanford-university');
+}
+
+const toggleSaved = () => {
+  isSaved.value = !isSaved.value;
 }
 
 </script>

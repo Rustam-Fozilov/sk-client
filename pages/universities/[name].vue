@@ -36,11 +36,13 @@
               <comment-icon/>
               <div>12</div>
             </div>
-            <div class="cursor-pointer">
-              <save-icon2/>
+            <div @click="toggleSaved" class="cursor-pointer">
+              <save-icon2 v-if="!isSaved"/>
+              <save-yellow-icon v-if="isSaved"/>
             </div>
-            <div class="cursor-pointer">
-              <share-icon/>
+            <div @click="makeShared" class="cursor-pointer">
+              <share-icon v-if="!isShared"/>
+              <read-icon width="25px" v-if="isShared"/>
             </div>
           </div>
         </div>
@@ -61,4 +63,15 @@
 definePageMeta({
   layout: "main-layout"
 })
+
+const isSaved = ref(false);
+const isShared = ref(false);
+
+const toggleSaved = () => {
+  isSaved.value = !isSaved.value;
+}
+
+const makeShared = () => {
+  isShared.value = true;
+}
 </script>

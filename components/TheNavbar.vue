@@ -54,7 +54,7 @@ import TheLogo from "@/components/ui/TheLogo.vue";
 import BtnPrimary from "@/components/ui/BtnPrimary.vue";
 import BtnSecondary from "@/components/ui/BtnSecondary.vue";
 import { useIsNavOpened } from "@/composables/navbar.composable";
-import { useIsProfileOpened } from "~/composables/modals.composable";
+import { useIsProfileOpened } from "@/composables/modals.composable";
 
 const isNavOpened = useIsNavOpened();
 const isProfileOpened = useIsProfileOpened();

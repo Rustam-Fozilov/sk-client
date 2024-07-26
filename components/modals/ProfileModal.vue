@@ -7,17 +7,17 @@
           <div class="text-xs opacity-70">+998977672097</div>
           <hr class="mt-3">
           <div>
-            <div class="flex gap-3 items-center py-1 cursor-pointer">
+            <div class="flex gap-3 items-center py-1 cursor-pointer hover:opacity-70 transition">
               <save-icon width="12px"/>
               <div>Saqlanganlar</div>
             </div>
-            <div class="flex gap-3 items-center py-1 cursor-pointer">
+            <div class="flex gap-3 items-center py-1 cursor-pointer hover:opacity-70 transition">
               <comment-icon width="14px"/>
               <div>Izohlar</div>
             </div>
           </div>
           <hr class="mt-3">
-          <div class="flex gap-3 items-center py-1 cursor-pointer">
+          <div class="flex gap-3 items-center py-1 cursor-pointer hover:opacity-70 transition">
             <logout-icon/>
             <div>Chiqish</div>
           </div>
