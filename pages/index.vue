@@ -6,7 +6,7 @@
         <div class="title">
           <div class="flex items-center gap-2 mt-[102px] 2xls:text-center 2xls:justify-center">
             <img class="h-12 object-cover rounded-full w-36 2xls:w-28 2xls:h-10" src="../assets/images/main/title.png" alt="Title image">
-            <div class="m-0 p-0 2xls:text-center"  style="line-height: normal;">Amerika universitetlariga kirish</div>
+            <div class="m-0 p-0 2xls:text-center" style="line-height: normal;">Amerika universitetlariga kirish</div>
           </div>
           <div class="p-0 m-0 text-wrap 2xls:text-center" style="line-height: normal;">
             va to'liq grant yutish bo'yicha
@@ -44,8 +44,8 @@
               </div>
               <div
                   id="arrow_btn"
-                  :class="{'rotate-45': isHoverToUniversBtn}"
-                  class="rounded-full bg-white w-12 h-12 flex justify-center items-center transition duration-200"
+                  :class="{'rotate-[405deg]': isHoverToUniversBtn}"
+                  class="rounded-full bg-white w-12 h-12 flex justify-center items-center transition ease-in-out duration-[400ms]"
               >
                 <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12.5066 1.3934C12.5066 0.896341 12.1037 0.493398 11.6066 0.493398L3.5066 0.493398C3.00955 0.493398 2.6066 0.896342 2.6066 1.3934C2.6066 1.89045 3.00955 2.2934 3.5066 2.2934L10.7066 2.2934L10.7066 9.4934C10.7066 9.99045 11.1095 10.3934 11.6066 10.3934C12.1037 10.3934 12.5066 9.99045 12.5066 9.4934L12.5066 1.3934ZM1.6364 12.6364L12.243 2.02979L10.9702 0.757002L0.363604 11.3636L1.6364 12.6364Z" fill="black"/>

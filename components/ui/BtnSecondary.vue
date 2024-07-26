@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="bg-soft-gray py-[14px] px-9 rounded-full hover:bg-opacity-70 transition duration-300" :class="className">
+    <button @click="handleEmit" class="bg-soft-gray py-[14px] px-9 rounded-full hover:bg-opacity-70 transition duration-300" :class="className">
       <slot name="btn-secondary"></slot>
     </button>
   </div>
@@ -11,5 +11,11 @@
 defineProps({
   className: String,
 })
+
+const emit = defineEmits(['clicked']);
+
+const handleEmit = () => {
+  emit('clicked');
+}
 
 </script>
