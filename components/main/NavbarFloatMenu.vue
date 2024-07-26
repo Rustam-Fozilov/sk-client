@@ -22,8 +22,7 @@
               <div class="opacity-50">Tezkor linklar:</div>
               <RouterLink to="/">Savol yo'llash</RouterLink>
               <RouterLink to="/">Qidiruv</RouterLink>
-              <RouterLink to="/">Kirish</RouterLink>
-              <RouterLink to="/">Ro'yhatdan o'tish</RouterLink>
+              <RouterLink @click="isNavOpened = false" to="/login">Kirish</RouterLink>
             </div>
             <a href="/" class="flex items-center gap-3">
               <div>SK Community</div>
