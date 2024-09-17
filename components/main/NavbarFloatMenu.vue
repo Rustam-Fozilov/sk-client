@@ -20,7 +20,7 @@
           <div class="flex justify-between sub-title">
             <div class="flex gap-7">
               <div class="opacity-50">Tezkor linklar:</div>
-              <RouterLink to="/">Savol yo'llash</RouterLink>
+<!--              <RouterLink to="/">Savol yo'llash</RouterLink>-->
               <RouterLink to="/">Qidiruv</RouterLink>
               <RouterLink @click="isNavOpened = false" to="/login">Kirish</RouterLink>
             </div>
