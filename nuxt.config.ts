@@ -24,5 +24,9 @@ export default defineNuxtConfig({
   //   host: '0.0.0.0'
   // },
 
-  modules: ["vue3-carousel-nuxt"]
+  modules: ["vue3-carousel-nuxt", '@nuxt/ui'],
+
+  colorMode: {
+    preference: 'light'
+  }
 })
