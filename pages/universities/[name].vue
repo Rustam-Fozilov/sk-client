@@ -32,10 +32,10 @@
               <like-icon/>
               <div>12</div>
             </div>
-            <div class="flex gap-1 items-center cursor-pointer">
-              <comment-icon/>
-              <div>12</div>
-            </div>
+<!--            <div class="flex gap-1 items-center cursor-pointer">-->
+<!--              <comment-icon/>-->
+<!--              <div>12</div>-->
+<!--            </div>-->
             <div @click="toggleSaved" class="cursor-pointer">
               <save-icon2 v-if="!isSaved"/>
               <save-yellow-icon v-if="isSaved"/>
@@ -57,9 +57,9 @@
       <the-footer/>
     </div>
 
-    <div>
-      <comments-modal/>
-    </div>
+<!--    <div>-->
+<!--      <comments-modal/>-->
+<!--    </div>-->
   </div>
 </template>
 
