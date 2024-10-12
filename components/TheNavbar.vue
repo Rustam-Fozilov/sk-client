@@ -2,7 +2,7 @@
   <div class="fixed w-full z-10">
     <div class="backdrop-blur-2xl">
       <div class="py-6 flex justify-between my-container border-b-[1px] border-opacity-20">
-        <div @click="openNavbar" id="breadcrumbs" class="cursor-pointer">
+        <div @click="modalService.openNavbar" id="breadcrumbs" class="cursor-pointer">
           <div class="bg-soft-gray w-12 h-12 rounded-full flex items-center justify-center">
             <div class="flex flex-col gap-[5px]">
               <div class="bg-black h-[2px] w-[10px] rounded-full"></div>
@@ -12,7 +12,7 @@
           </div>
         </div>
         <div id="auth_action" class="flex gap-[10px]">
-          <BtnSecondary>
+          <BtnSecondary @clicked="openSearchModal">
             <template #btn-secondary>
               <div class="flex justify-between gap-4 font-tt-medium opacity-50">
                 <div class="flex items-center gap-2">
@@ -53,15 +53,15 @@
 import TheLogo from "@/components/ui/TheLogo.vue";
 import BtnPrimary from "@/components/ui/BtnPrimary.vue";
 import BtnSecondary from "@/components/ui/BtnSecondary.vue";
-import { useIsNavOpened } from "@/composables/navbar.composable";
 import { useIsProfileOpened } from "@/composables/modals.composable";
+import { ModalService } from "~/core/services/modal.service";
 
-const isNavOpened = useIsNavOpened();
 const isProfileOpened = useIsProfileOpened();
 const router = useRouter();
+const modalService = new ModalService();
 
-const openNavbar = () => {
-  isNavOpened.value = true;
+const openSearchModal = () => {
+  modalService.openSearchModal();
 }
 
 const gotoLogin = () => {
@@ -69,7 +69,7 @@ const gotoLogin = () => {
 }
 
 const toggleProfileModal = () => {
-  isProfileOpened.value = !isProfileOpened.value;
+  modalService.toggleProfileModal();
 }
 
 </script>

@@ -13,14 +13,11 @@
           </div>
           <div class="flex items-end gap-2 text-nowrap 2xls:flex-col 2xls:items-center"  style="line-height: normal;">
             <div>batafsil qo'llanma</div>
-            <div class="w-80 border border-black border-opacity-20 h-12 rounded-full flex items-center justify-between p-5 hover:border-opacity-70 transition duration-300">
-              <search-icon/>
-              <input
-                  id="search-input"
-                  type="text"
-                  class="font-tt-regular tracking-normal bg-transparent outline-0 text-rg ml-2"
-                  placeholder="Qidiruv..."
-              />
+            <div @click="modalService.openSearchModal" class="w-80 border cursor-pointer border-black border-opacity-20 h-12 rounded-full flex items-center justify-between p-5 hover:border-opacity-70 transition duration-300">
+              <div class="flex gap-3 items-center">
+                <search-icon/>
+                <div class="font-tt-regular tracking-normal text-rg">Qidiruv...</div>
+              </div>
               <div class="text-rg font-tt-regular tracking-normal">Ctrl + K</div>
             </div>
           </div>
@@ -80,6 +77,7 @@ import SearchIcon from "~/components/ui/SearchIcon.vue";
 import TopUniversities from "~/components/modules/TopUniversities.vue";
 import BlogCard from "~/components/modules/BlogCard.vue";
 import QA from "~/components/modules/QA.vue";
+import { ModalService } from "~/core/services/modal.service";
 
 definePageMeta({
   layout: "main-layout"
@@ -87,6 +85,7 @@ definePageMeta({
 
 const isHoverToUniversBtn = ref(false);
 const router = useRouter();
+const modalService = new ModalService();
 
 const gotoUniversities = () => {
   router.push('/universities')
@@ -95,8 +94,5 @@ const gotoUniversities = () => {
 </script>
 
 <style scoped>
-#search-input::placeholder {
-  color: black;
-  opacity: 1;
-}
+
 </style>
