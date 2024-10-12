@@ -58,7 +58,7 @@
       </div>
 
       <div class="mt-24">
-        <blog-card/>
+        <blog-card2/>
       </div>
 
       <div class="mt-24">
@@ -75,7 +75,7 @@
 <script setup lang="ts">
 import SearchIcon from "~/components/ui/SearchIcon.vue";
 import TopUniversities from "~/components/modules/TopUniversities.vue";
-import BlogCard from "~/components/modules/BlogCard.vue";
+import BlogCard2 from "~/components/modules/BlogCard2.vue";
 import QA from "~/components/modules/QA.vue";
 import { ModalService } from "~/core/services/modal.service";
 

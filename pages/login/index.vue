@@ -12,12 +12,12 @@
       </div>
       <div class="w-80">
         <div class="w-full flex gap-x-2.5">
+          <input v-focus pattern="\d?" maxlength="1" type="text" class="w-full text-sm font-tt-medium h-14 rounded-2xl border border-black border-opacity-20 text-center pt-1 bg-transparent">
           <input pattern="\d?" maxlength="1" type="text" class="w-full text-sm font-tt-medium h-14 rounded-2xl border border-black border-opacity-20 text-center pt-1 bg-transparent">
-          <input type="text" class="w-full h-14 rounded-2xl border border-black border-opacity-20 text-center pt-1 bg-transparent">
-          <input type="text" class="w-full h-14 rounded-2xl border border-black border-opacity-20 text-center pt-1 bg-transparent">
-          <input type="text" class="w-full h-14 rounded-2xl border border-black border-opacity-20 text-center pt-1 bg-transparent">
-          <input type="text" class="w-full h-14 rounded-2xl border border-black border-opacity-20 text-center pt-1 bg-transparent">
-          <input type="text" class="w-full h-14 rounded-2xl border border-black border-opacity-20 text-center pt-1 bg-transparent">
+          <input pattern="\d?" maxlength="1" type="text" class="w-full text-sm font-tt-medium h-14 rounded-2xl border border-black border-opacity-20 text-center pt-1 bg-transparent">
+          <input pattern="\d?" maxlength="1" type="text" class="w-full text-sm font-tt-medium h-14 rounded-2xl border border-black border-opacity-20 text-center pt-1 bg-transparent">
+          <input pattern="\d?" maxlength="1" type="text" class="w-full text-sm font-tt-medium h-14 rounded-2xl border border-black border-opacity-20 text-center pt-1 bg-transparent">
+          <input pattern="\d?" maxlength="1" type="text" class="w-full text-sm font-tt-medium h-14 rounded-2xl border border-black border-opacity-20 text-center pt-1 bg-transparent">
         </div>
       </div>
     </div>

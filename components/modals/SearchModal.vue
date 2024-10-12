@@ -5,7 +5,7 @@
       <div class="w-[750px] flex flex-col items-start bg-soft-white rounded-xl p-7">
         <div class="rounded-full w-full border border-black border-opacity-20 bg-soft-gray py-4 px-6 flex items-center gap-3">
           <SearchIcon width="22" height="22"/>
-          <input v-model="searchText" type="text" class="w-full bg-transparent font-tt-regular text-md outline-none" placeholder="Qidiruv...">
+          <input v-focus v-model="searchText" type="text" class="w-full bg-transparent font-tt-regular text-md outline-none" placeholder="Qidiruv...">
         </div>
         <div v-if="!lastSearch" class="opacity-50 w-full mt-12 text-center">
           Avvalgi qidiruvlar yo'q
