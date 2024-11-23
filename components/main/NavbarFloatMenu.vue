@@ -10,7 +10,7 @@
 
           <div class="mt-24 title flex flex-col gap-10">
             <RouterLink class="duration-300 underline-hover" @click="isNavOpened = false" to="/universities">Universitetlar</RouterLink>
-            <RouterLink class="duration-300 underline-hover" to="/">Sevimlilar</RouterLink>
+            <RouterLink class="duration-300 underline-hover" @click="isNavOpened = false" to="/profile/saved">Sevimlilar</RouterLink>
             <RouterLink class="duration-300 underline-hover" to="/">Blog</RouterLink>
             <RouterLink class="duration-300 underline-hover" to="/">Contact</RouterLink>
           </div>

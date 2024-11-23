@@ -53,8 +53,9 @@
                     </div>
                     <div class="w-full h-px mt-12 bg-black bg-opacity-20"></div>
                     <div class="mt-7 flex gap-5 items-center">
-                        <div class="flex items-end gap-1 cursor-pointer">
-                            <like-icon />
+                        <div @click="makeLiked" class="flex items-end gap-1 cursor-pointer">
+                            <like-icon v-if="!isLiked" />
+                            <like-icon-pressed v-if="isLiked" />
                             <div>12</div>
                         </div>
                         <!--            <div class="flex gap-1 items-center cursor-pointer">-->
@@ -89,12 +90,22 @@
 </template>
 
 <script setup lang="ts">
+import TheFooter from '~/components/TheFooter.vue';
+import UniversityCarouselList from '~/components/main/UniversityCarouselList.vue';
+import ShareIcon from '~/components/ui/ShareIcon.vue';
+import ReadIcon from '~/components/ui/ReadIcon.vue';
+import SaveIcon2 from '~/components/ui/SaveIcon2.vue';
+import SaveYellowIcon from '~/components/ui/SaveYellowIcon.vue';
+import LikeIcon from '~/components/ui/LikeIcon.vue';
+import LikeIconPressed from '~/components/ui/LikeIconPressed.vue';
+
 definePageMeta({
     layout: "main-layout",
 });
 
 const isSaved = ref(false);
 const isShared = ref(false);
+const isLiked = ref(false);
 
 const toggleSaved = () => {
     isSaved.value = !isSaved.value;
@@ -102,5 +113,9 @@ const toggleSaved = () => {
 
 const makeShared = () => {
     isShared.value = true;
+};
+
+const makeLiked = () => {
+    isLiked.value = !isLiked.value;
 };
 </script>

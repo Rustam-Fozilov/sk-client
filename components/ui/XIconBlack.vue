@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img :width="width" :height="height" src="/assets/images/svg/cancel-icon.svg" alt="Cancel icon" class="max-w-none">
+    <img :width="width" :height="height" src="/assets/images/svg/cancel-icon-black.svg" alt="Cancel icon" class="max-w-none">
   </div>
 </template>
 

@@ -3,6 +3,7 @@
     <div v-if="realWidth > 0" class="flex gap-5 flex-wrap">
       <university-card v-for="university in universities" :university="university" :width="`${realWidth}px`" :height="`${realWidth}px`"/>
     </div>
+    <pagination></pagination>
   </div>
 </template>
 
