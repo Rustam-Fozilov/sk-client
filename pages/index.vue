@@ -68,7 +68,7 @@
         <blog-card2/>
       </div>
 
-      <div class="mt-24">
+      <div class="mt-24 xl:mt-12 md:mt-7">
         <q-a/>
       </div>
     </div>
