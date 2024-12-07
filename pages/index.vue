@@ -64,7 +64,7 @@
         <top-universities/>
       </div>
 
-      <div class="mt-24">
+      <div class="mt-24 xl:mt-12">
         <blog-card2/>
       </div>
 

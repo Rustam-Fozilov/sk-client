@@ -1,6 +1,6 @@
 <template>
   <div>
-    <carousel v-if="realWidth > 0" class="flex gap-5 flex-wrap" :items-to-show="itemsToShow" autoplay="2000">
+    <carousel v-if="realWidth > 0" class="flex gap-5 flex-wrap" :items-to-show="itemsToShow" :autoplay="2000">
       <slide v-for="university in universities" key="university">
         <university-card :university="university" :width="`${realWidth}px`" :height="`${realWidth}px`"/>
       </slide>
@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import UniversityCard from '..//modules/UniversityCard.vue';
+import UniversityCard from '../modules/UniversityCard.vue';
 
 defineProps({
   universities: {

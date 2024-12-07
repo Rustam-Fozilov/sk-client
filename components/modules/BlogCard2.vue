@@ -1,13 +1,13 @@
 <template>
   <div>
-    <div class="w-full flex flex-col items-center gap-5">
-      <div class="title">Surish Kerak Blog</div>
-      <div class="opacity-50 w-1/2 text-center text-md tracking-tight">Amerika Universitetlariga topshirish, to’liq grantni qo’lga kiritish, visa masalalari, hujjat topshirish, va boshqa mavzularda gaplashamiz.</div>
+    <div class="w-full flex flex-col items-center gap-5 xl:gap-3">
+      <div class="title md:mid-title">Surish Kerak Blog</div>
+      <div class="opacity-50 w-1/2 text-center text-md tracking-tight xl:leading-none lg:w-full md:text-sm">Amerika Universitetlariga topshirish, to’liq grantni qo’lga kiritish, visa masalalari, hujjat topshirish, va boshqa mavzularda gaplashamiz.</div>
     </div>
-    <div class="mt-7 flex justify-between items-start h-[650px]">
-      <div class="cursor-pointer w-[48%] flex flex-col justify-end items-start h-full rounded-3xl bg-[url('/assets/images/main/blog-banner.png')] bg-cover">
-        <div class="flex flex-col gap-12 w-[70%] bg-white p-5 rounded-tr-3xl rounded-bl-3xl">
-          <div class="mid-title">
+    <div class="mt-7 flex items-start justify-between h-[650px] xl:flex-col xl:gap-5 xl:h-auto">
+      <div class="cursor-pointer w-[48%] xl:w-full xl:h-[350px] flex flex-col justify-end items-start h-full rounded-3xl bg-[url('/assets/images/main/blog-banner.png')] bg-cover xl:bg-center">
+        <div class="flex flex-col gap-12 w-[70%] bg-white p-5 rounded-tr-3xl rounded-bl-3xl xl:w-[40%] lg:w-full xl:gap-5 lg:rounded-tr-none lg:rounded-e-3xl">
+          <div class="mid-title text-ellipsis overflow-hidden whitespace-nowrap xl:text-lg sm:text-md">
             Как поступить на магистратуру в Европе и учиться бесплатно
           </div>
           <div
@@ -30,14 +30,14 @@
           </div>
         </div>
       </div>
-      <div class="w-[48%] h-full flex flex-col gap-7">
-        <div class="flex w-full h-full justify-between items-center">
-          <div class="bg-white w-[48%] h-[98%] rounded-2xl"></div>
-          <div class="bg-white w-[48%] h-[98%] rounded-2xl"></div>
+      <div class="w-[48%] h-full flex flex-col gap-7 xl:w-full xl:h-[550px] sm:gap-5 sm:h-auto">
+        <div class="flex w-full h-full justify-between items-center sm:flex-col sm:gap-5">
+          <div class="bg-white w-[48%] h-[98%] rounded-2xl sm:w-full sm:h-[250px]"></div>
+          <div class="bg-white w-[48%] h-[98%] rounded-2xl sm:w-full sm:h-[250px]"></div>
         </div>
-        <div class="flex w-full h-full justify-between items-center">
-          <div class="bg-white w-[48%] h-[98%] rounded-2xl"></div>
-          <div class="bg-white w-[48%] h-[98%] rounded-2xl"></div>
+        <div class="flex w-full h-full justify-between items-center sm:flex-col sm:gap-5">
+          <div class="bg-white w-[48%] h-[98%] rounded-2xl sm:w-full sm:h-[250px]"></div>
+          <div class="bg-white w-[48%] h-[98%] rounded-2xl sm:w-full sm:h-[250px]"></div>
         </div>
       </div>
     </div>
