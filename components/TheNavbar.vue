@@ -1,7 +1,8 @@
 <template>
   <div class="fixed w-full z-10">
     <div class="backdrop-blur-2xl">
-      <div class="py-6 flex justify-between my-container border-b-[1px] border-opacity-20">
+      <!-- DESKTOP -->
+      <div class="py-6 flex justify-between my-container border-b-[1px] border-opacity-20 xl:hidden">
         <div @click="modalService.openNavbar" id="breadcrumbs" class="cursor-pointer">
           <div class="bg-soft-gray w-12 h-12 rounded-full flex items-center justify-center">
             <div class="flex flex-col gap-[5px]">
@@ -38,8 +39,24 @@
           </BtnSecondary>
         </div>
       </div>
-      <div class="absolute top-0 pt-6 left-1/2 -translate-x-1/2">
-        <the-logo width="80px"/>
+      <div class="absolute top-0 pt-6 left-1/2 -translate-x-1/2 xl:hidden">
+        <the-logo width="70px"/>
+      </div>
+
+      <!-- MOBILE -->
+      <div class="py-5 hidden justify-between my-container border-b-[1px] border-opacity-20 xl:flex">
+        <div>
+          <the-logo width="70px"/>
+        </div>
+        <div @click="modalService.openNavbar" class="cursor-pointer">
+          <div class="bg-soft-gray w-12 h-12 rounded-full flex items-center justify-center">
+            <div class="flex flex-col gap-[5px]">
+              <div class="bg-black h-[2px] w-[10px] rounded-full"></div>
+              <div class="bg-black h-[2px] w-[20px] rounded-full"></div>
+              <div class="bg-black h-[2px] w-[10px] rounded-full ml-[10px]"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div>
