@@ -20,7 +20,7 @@
           <div class="flex justify-between sub-title md:flex-col">
             <div class="flex gap-7 md:flex-col md:gap-3">
               <div class="opacity-50">Tezkor linklar:</div>
-              <RouterLink to="/">Qidiruv</RouterLink>
+              <div @click="openSearchModal" class="cursor-pointer">Qidiruv</div>
               <RouterLink @click="isNavOpened = false" to="/login">Kirish</RouterLink>
             </div>
             <a href="/" class="flex items-center gap-3 md:mt-3">
@@ -48,6 +48,8 @@
 import { useIsNavOpened } from "~/composables/navbar.composable";
 import XIcon from "../ui/XIcon.vue";
 
+const isSearchModalOpened = useIsSearchModalOpened();
+const isNavOpened = useIsNavOpened();
 const logoWidth = ref<string>('100px');
 const xWidth = ref<string>('auto');
 
@@ -65,10 +67,13 @@ onMounted(() => {
   })
 });
 
-const isNavOpened = useIsNavOpened();
-
 const closeNavbar = () => {
   isNavOpened.value = false;
+}
+
+const openSearchModal = () => {
+  isNavOpened.value = false;
+  isSearchModalOpened.value = true;
 }
 
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="flex flex-col gap-12 sm:gap-7">
-      <div class="flex justify-between items-end sm:flex-col sm:items-start sm:gap-2">
+    <div class="flex flex-col gap-12 sm:gap-5">
+      <div class="flex justify-between items-end sm:flex-col sm:items-start sm:gap-1">
         <div class="title md:mid-title">
           Top universitetlar
         </div>
