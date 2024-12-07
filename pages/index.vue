@@ -73,7 +73,7 @@
       </div>
     </div>
 
-    <div class="mt-24">
+    <div class="mt-24 xl:mt-12">
       <the-footer/>
     </div>
   </div>
@@ -85,6 +85,7 @@ import TopUniversities from "~/components/modules/TopUniversities.vue";
 import BlogCard2 from "~/components/modules/BlogCard2.vue";
 import QA from "~/components/modules/QA.vue";
 import { ModalService } from "~/core/services/modal.service";
+import TheFooter from "~/components/TheFooter.vue";
 
 definePageMeta({
   layout: "main-layout"
