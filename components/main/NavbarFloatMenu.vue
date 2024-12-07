@@ -8,7 +8,7 @@
             <XIcon @click="closeNavbar" class="cursor-pointer" :width="xWidth"/>
           </div>
 
-          <div class="mt-24 title flex flex-col gap-10">
+          <div class="mt-24 title flex flex-col gap-10 md:gap-6 sm:mt-16">
             <RouterLink class="duration-300 underline-hover md:mid-title" @click="isNavOpened = false" to="/universities">Universitetlar</RouterLink>
             <RouterLink class="duration-300 underline-hover md:mid-title" @click="isNavOpened = false" to="/profile/saved">Sevimlilar</RouterLink>
             <RouterLink class="duration-300 underline-hover md:mid-title" @click="isNavOpened = false" to="/blog">Blog</RouterLink>

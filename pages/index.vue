@@ -4,15 +4,22 @@
 <!--      TOP HEADER-->
       <div class="flex justify-between mt-7 gap-2 2xls:flex-col 2xl:items-center">
         <div class="title">
-          <div class="flex items-center gap-2 mt-[102px] 2xls:text-center 2xls:justify-center">
-            <img class="h-12 object-cover rounded-full w-36 2xls:w-28 2xls:h-10" src="../assets/images/main/title.png" alt="Title image">
-            <div class="m-0 p-0 2xls:text-center" style="line-height: normal;">Amerika universitetlariga kirish</div>
+          <div class="flex items-center gap-2 mt-[102px] 2xls:text-center 2xls:justify-center md:mt-7">
+            <img class="h-12 object-cover rounded-full w-36 2xls:w-28 2xls:h-10 md:hidden" src="../assets/images/main/title.png" alt="Title image">
+            <div class="m-0 p-0 2xls:text-center md:mid-title sm:hidden" style="line-height: normal;">Amerika universitetlariga kirish</div>
+            <div class="hidden m-0 p-0 text-lg sm:flex mb-5" style="line-height: normal;">
+              Amerika universitetlariga kirish va to'liq grant yutish bo'yicha batafsil qo'llanma
+            </div>
           </div>
-          <div class="p-0 m-0 text-wrap 2xls:text-center" style="line-height: normal;">
+
+          <div class="p-0 m-0 text-wrap 2xls:text-center md:mid-title sm:hidden" style="line-height: normal;">
             va to'liq grant yutish bo'yicha
           </div>
+
           <div class="flex items-end gap-2 text-nowrap 2xls:flex-col 2xls:items-center"  style="line-height: normal;">
-            <div>batafsil qo'llanma</div>
+
+            <div class="md:mid-title sm:hidden">batafsil qo'llanma</div>
+
             <div @click="modalService.openSearchModal" class="w-80 border cursor-pointer border-black border-opacity-20 h-12 rounded-full flex items-center justify-between p-5 hover:border-opacity-70 transition duration-300">
               <div class="flex gap-3 items-center">
                 <search-icon/>
@@ -22,7 +29,7 @@
             </div>
           </div>
           <div class="w-full flex justify-end mt-5 text-sm font-tt-regular tracking-normal opacity-80 text-wrap 2xls:justify-center 2xls:mb-5">
-            <div class="w-[60%] 2xls:text-center">
+            <div class="w-[60%] 2xls:text-center sm:w-full">
               Amerika universitetlarida mutlaqo bepul o’qish uchun batafsil qo’llanma, yohud qanday qilib amerikaga surish mumkin.
             </div>
           </div>

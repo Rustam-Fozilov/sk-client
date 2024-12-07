@@ -70,6 +70,7 @@
 import TheLogo from "@/components/ui/TheLogo.vue";
 import BtnPrimary from "@/components/ui/BtnPrimary.vue";
 import BtnSecondary from "@/components/ui/BtnSecondary.vue";
+import NavbarFloatMenu from "./main/NavbarFloatMenu.vue";
 import { useIsProfileOpened } from "@/composables/modals.composable";
 import { ModalService } from "~/core/services/modal.service";
 
