@@ -2,12 +2,12 @@
     <div>
         <div class="my-container">
             <div>
-                <div class="my-16 text-center">
+                <div class="my-16 text-center xl:my-10">
                     <div class="title">Harvard University</div>
                     <div class="sub-title">Cambridge, US</div>
                 </div>
 
-                <div class="w-full h-[650px]">
+                <div class="w-full h-[650px] lg:h-[450px]">
                     <img
                         class="w-full h-full object-cover rounded-3xl"
                         src="/assets/images/main/banner.png"
@@ -15,9 +15,9 @@
                     />
                 </div>
 
-                <div class="mt-12 w-full bg-white rounded-3xl py-12 px-60">
+                <div class="mt-12 w-full bg-white rounded-3xl py-12 px-60 2xl:px-14">
                     <div class="mid-title">Pathway</div>
-                    <div class="mt-12 text-sm">
+                    <div class="mt-12 text-sm 2xl:mt-7">
                         Princeton University - 1746-yilda ochilgan New Jersey
                         shtatining Princeton shaxrida joylashgan AQSHning 4-eng
                         qadimiy universiteti va Amerika revolutsiyasidan oldin
