@@ -1,14 +1,21 @@
 <template>
-  <div id="university_pagination" class="flex justify-center mt-12">
-    <div class="flex gap-2">
-      <div>
+  <div id="university_pagination" class="flex justify-center mt-12 sm:mt-7">
+    <div class="flex gap-2 flex-wrap">
+      <div class="sm:hidden">
         <BtnPrimary>
           <template #btn-primary>
             Oldingisi
           </template>
         </BtnPrimary>
       </div>
-      <div class="flex gap-2">
+      <div class="hidden sm:block">
+        <BtnPrimary>
+          <template #btn-primary>
+            <
+          </template>
+        </BtnPrimary>
+      </div>
+      <div class="flex gap-0">
         <div class="cursor-pointer w-12 h-12 flex justify-center items-center rounded-full bg-white hover:bg-soft-blue hover:text-white transition duration-300">
           1
         </div>
@@ -25,10 +32,17 @@
           12
         </div>
       </div>
-      <div>
+      <div class="sm:hidden">
         <BtnPrimary>
           <template #btn-primary>
             Keyingisi
+          </template>
+        </BtnPrimary>
+      </div>
+      <div class="hidden sm:block">
+        <BtnPrimary>
+          <template #btn-primary>
+            >
           </template>
         </BtnPrimary>
       </div>

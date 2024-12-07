@@ -8,6 +8,8 @@
 </template>
 
 <script setup lang="ts">
+import UniversityCard from '../modules/UniversityCard.vue';
+import pagination from '../modules/pagination.vue';
 
 defineProps({
   universities: {
@@ -34,6 +36,11 @@ const calculateCardWidth = () => {
   if (windowWidth.value <= 1024) {
     leftValue = clearValue - (1.8 * 20)
     realWidth.value = leftValue / 2;
+  }
+
+  if (windowWidth.value <= 640) {
+    leftValue = clearValue - (0.8 * 20)
+    realWidth.value = leftValue / 1;
   }
 }
 

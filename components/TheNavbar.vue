@@ -44,7 +44,7 @@
       </div>
 
       <!-- MOBILE -->
-      <div class="py-5 hidden justify-between my-container border-b-[1px] border-opacity-20 xl:flex">
+      <div class="py-5 hidden justify-between items-center my-container border-b-[1px] border-opacity-20 xl:flex">
         <div>
           <the-logo width="70px"/>
         </div>
