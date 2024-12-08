@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="flex flex-col gap-10 mt-24 items-center">
+    <div class="flex flex-col gap-10 mt-24 items-center sm:mt-12 sm:gap-5 sm:px-2">
       <div>
-        <the-logo color="black" width="120px"/>
+        <the-logo color="black" :width="logoWidth"/>
       </div>
       <div class="mid-title">
         Kodni kiriting
@@ -28,6 +28,22 @@
 
 definePageMeta({
   layout: "main-layout"
+})
+
+const logoWidth = ref('120px');
+
+onMounted(() => {
+  if (window.innerWidth <= 640) {
+    logoWidth.value = '80px';
+  }
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth <= 640) {
+      logoWidth.value = '80px';
+    } else {
+      logoWidth.value = '120px';
+    }
+  })
 })
 
 </script>

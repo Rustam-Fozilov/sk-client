@@ -12,7 +12,7 @@
             <RouterLink class="duration-300 underline-hover md:mid-title" @click="isNavOpened = false" to="/universities">Universitetlar</RouterLink>
             <RouterLink class="duration-300 underline-hover md:mid-title" @click="isNavOpened = false" to="/profile/saved">Sevimlilar</RouterLink>
             <RouterLink class="duration-300 underline-hover md:mid-title" @click="isNavOpened = false" to="/blog">Blog</RouterLink>
-            <RouterLink class="duration-300 underline-hover md:mid-title" @click="isNavOpened = false" to="/contact">Contact</RouterLink>
+            <RouterLink class="duration-300 underline-hover md:mid-title" @click="isNavOpened = false" to="/contact">Kontaktlar</RouterLink>
           </div>
         </div>
 
