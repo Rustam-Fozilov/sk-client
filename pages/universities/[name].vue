@@ -2,22 +2,22 @@
     <div>
         <div class="my-container">
             <div>
-                <div class="my-16 text-center xl:my-10">
-                    <div class="title">Harvard University</div>
+                <div class="my-16 text-center xl:my-10 sm:my-5">
+                    <div class="title sm:mid-title">Harvard University</div>
                     <div class="sub-title">Cambridge, US</div>
                 </div>
 
-                <div class="w-full h-[650px] lg:h-[450px]">
+                <div class="w-full h-[650px] lg:h-[450px] sm:h-[300px]">
                     <img
-                        class="w-full h-full object-cover rounded-3xl"
+                        class="w-full h-full object-cover rounded-3xl sm:rounded-2xl"
                         src="/assets/images/main/banner.png"
                         alt="Banner"
                     />
                 </div>
 
-                <div class="mt-12 w-full bg-white rounded-3xl py-12 px-60 2xl:px-14">
-                    <div class="mid-title">Pathway</div>
-                    <div class="mt-12 text-sm 2xl:mt-7">
+                <div class="mt-12 w-full bg-white rounded-3xl sm:rounded-2xl py-12 px-60 2xl:px-14 sm:mt-5 sm:py-6 sm:px-6">
+                    <div class="mid-title sm:sub-title">Pathway</div>
+                    <div class="mt-12 text-sm 2xl:mt-7 sm:mt-2 sm:text-rg">
                         Princeton University - 1746-yilda ochilgan New Jersey
                         shtatining Princeton shaxrida joylashgan AQSHning 4-eng
                         qadimiy universiteti va Amerika revolutsiyasidan oldin
@@ -51,8 +51,8 @@
                         Kampusda 10 ta kutubxona, san'at muzeyi, teatr,
                         basseynli katta fitnes markazi va tennis korti mavjud.
                     </div>
-                    <div class="w-full h-px mt-12 bg-black bg-opacity-20"></div>
-                    <div class="mt-7 flex gap-5 items-center">
+                    <div class="w-full h-px mt-12 bg-black bg-opacity-20 sm:mt-5"></div>
+                    <div class="mt-7 flex gap-5 items-center sm:mt-5 sm:gap-3">
                         <div @click="makeLiked" class="flex items-end gap-1 cursor-pointer">
                             <like-icon v-if="!isLiked" />
                             <like-icon-pressed v-if="isLiked" />
@@ -73,13 +73,13 @@
                     </div>
                 </div>
 
-                <div class="mt-12">
+                <div class="mt-12 sm:mt-7">
                     <university-carousel-list />
                 </div>
             </div>
         </div>
 
-        <div class="mt-24">
+        <div class="mt-24 sm:mt-12">
             <the-footer />
         </div>
 
