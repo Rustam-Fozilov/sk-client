@@ -24,12 +24,12 @@
               </div>
             </template>
           </BtnSecondary>
-          <BtnPrimary v-if="false" @clicked="gotoLogin">
+          <BtnPrimary v-if="true" @clicked="gotoLogin">
             <template #btn-primary>
               Kirish
             </template>
           </BtnPrimary>
-          <BtnSecondary @clicked="toggleProfileModal">
+          <BtnSecondary v-if="false" @clicked="toggleProfileModal">
             <template #btn-secondary>
               <div class="flex items-center gap-2.5 font-tt-regular">
                 <user-icon/>

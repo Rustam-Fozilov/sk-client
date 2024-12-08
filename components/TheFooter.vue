@@ -33,10 +33,10 @@
           hello@surish-kerak.uz
         </div>
         <div class="flex gap-5 tracking-tight sm:flex-col sm:gap-3">
-          <div>About us</div>
-          <div>Universities</div>
-          <div>Blog</div>
-          <div>Contact</div>
+          <RouterLink to="/universities">Universitetlar</RouterLink>
+          <RouterLink to="/profile/saved">Sevimlilar</RouterLink>
+          <RouterLink to="/blog">Blog</RouterLink>
+          <RouterLink to="/contact">Kontaktlar</RouterLink>
         </div>
       </div>
     </div>
