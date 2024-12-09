@@ -11,6 +11,7 @@
             Как поступить на магистратуру в Европе и учиться бесплатно
           </div>
           <div
+              @click="gotoBlog"
               @mouseover="isHoverToUniversBtn = true"
               @mouseleave="isHoverToUniversBtn = false"
               class="flex cursor-pointer"
@@ -45,6 +46,12 @@
 </template>
 
 <script setup lang="ts">
-const isHoverToUniversBtn = ref(false)
+
+const isHoverToUniversBtn = ref(false);
+const router = useRouter();
+
+const gotoBlog = () => {
+  router.push('/blog');
+}
 
 </script>
