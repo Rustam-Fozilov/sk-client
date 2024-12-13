@@ -25,7 +25,7 @@
       </div>
 
       <div class="mt-12">
-        blog cards
+        <BlogList/>
       </div>
     </div>
   </div>
