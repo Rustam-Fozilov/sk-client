@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="my-container">
-      <div class="mt-12">
+      <div class="mt-12 md:mt-5">
         <BlogHeaderCard/>
       </div>
 
-      <div class="mt-12 w-full bg-white rounded-3xl sm:rounded-2xl py-12 px-60 2xl:px-14 sm:mt-5 sm:py-6 sm:px-6">
+      <div class="mt-12 w-full bg-white rounded-3xl sm:rounded-2xl py-12 px-60 2xl:px-14 md:mt-5 sm:py-6 sm:px-6">
         <div class="mid-title sm:sub-title">Pathway</div>
         <div class="mt-12 text-sm 2xl:mt-7 sm:mt-2 sm:text-rg">
           Princeton University - 1746-yilda ochilgan New Jersey
