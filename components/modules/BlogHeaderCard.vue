@@ -15,9 +15,9 @@
           2 min
         </div>
       </div>
-      <div class="mid-title text-ellipsis truncate-lines overflow-hidden leading-9 xl:text-lg sm:text-md">
+      <RouterLink to="/blog/1" class="mid-title text-ellipsis truncate-lines overflow-hidden leading-9 xl:text-lg sm:text-md">
         Vizadan rad olmaslik uchun qaysi universitetni tanlash kerak
-      </div>
+      </RouterLink>
       <div class="flex cursor-pointer font-tt-medium opacity-50">
         11.11.2024
       </div>

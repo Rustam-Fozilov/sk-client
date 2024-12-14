@@ -7,13 +7,24 @@
       </div>
 
       <div class="flex justify-center mt-7">
-        <div class="flex flex-wrap gap-3 items-center justify-start">
-          <BtnSecondary v-for="i in 6">
-            <template #btn-secondary>
-              Образование за рубежом
-            </template>
-          </BtnSecondary>
+        <div class="flex flex-wrap gap-3 items-center justify-start" >
+          <div v-for="i in 5" class="flex gap-3">
+            <BtnPrimary v-if="i === 3">
+              <template #btn-primary>
+                Образование за рубежом
+              </template>
+            </BtnPrimary>
+            <BtnSecondary>
+              <template #btn-secondary>
+                Образование за рубежом
+              </template>
+            </BtnSecondary>
+          </div>
         </div>
+      </div>
+
+      <div class="mt-12 text-center mid-title">
+        Образование за рубежом
       </div>
 
       <div class="mt-12">
