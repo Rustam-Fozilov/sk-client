@@ -15,7 +15,7 @@
           2 min
         </div>
       </div>
-      <div class="mid-title text-ellipsis overflow-hidden leading-9 xl:text-lg sm:text-md">
+      <div class="mid-title text-ellipsis truncate-lines overflow-hidden leading-9 xl:text-lg sm:text-md">
         Vizadan rad olmaslik uchun qaysi universitetni tanlash kerak
       </div>
       <div class="flex cursor-pointer font-tt-medium opacity-50">
@@ -34,5 +34,11 @@ definePageMeta({
 </script>
 
 <style scoped>
-
+.truncate-lines {
+  display: -webkit-box; 
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
 </style>

@@ -1,34 +1,20 @@
 <template>
-  <div>
-    <div
-      :style="`width: ${width}; height: ${height}`"
-      class="cursor-pointer rounded-3xl bg-[url('/assets/images/main/banner.png')] bg-cover p-5"
-    >
-      <div class="flex flex-col justify-between h-full items-end">
-        <div>
-          <save-icon/>
+  <div class="bg-white w-[24%] h-auto rounded-2xl flex flex-col justify-start">
+    <div class="bg-[url('/assets/images/main/title.png')] rounded-t-2xl h-[150px]"></div>
+    <div class="flex flex-col justify-between p-5">
+      <div class="relative -top-8 flex items-center justify-start gap-1">
+        <div class="bg-soft-blue text-white border-[2px] border-[#F1F1F1] w-fit px-5 rounded-full">
+          scholarship
         </div>
-        <div class="w-full">
-          <div class="bg-white p-5 w-full rounded-2xl flex gap-1 justify-between">
-            <div class="text-ellipsis overflow-hidden whitespace-nowrap">
-              <div class="sub-title text-ellipsis overflow-hidden whitespace-nowrap">
-                Harvard University
-              </div>
-              <div class="flex gap-1 items-center">
-                <location-icon width="12"/>
-                <div class="text-ellipsis overflow-hidden whitespace-nowrap">
-                  Cambridge
-                </div>
-              </div>
-            </div>
-            <div
-                class="rounded-full min-w-12 h-12 flex items-center justify-center transition duration-300"
-            >
-              <arrow-black-icon width="15"/>
-            </div>
-          </div>
+        <div class="bg-soft-blue text-white border-[2px] border-[#F1F1F1] w-fit px-5 rounded-full">
+          mba
         </div>
       </div>
+      <RouterLink to="/blog/1" class="sub-title truncate-ellipsis cursor-pointer">Как поступить на бакалавриат по бизнесу в США</RouterLink>
+      <div class="truncate-ellipsis-3 mt-5 opacity-60">
+        Когда мы сталкиваемся с трудностями или неприятностями, на английском языке можно использовать разные слова: Problem, Trouble, Issue и Matter. Однако каждое из них имеет свои нюансы. В этой статье разберем
+      </div>
+      <div class="opacity-60 mt-3">15.12.2024</div>
     </div>
   </div>
 </template>
@@ -37,12 +23,6 @@
 import { useRouter } from "vue-router";
 
 defineProps({
-  width: {
-    required: true,
-  },
-  height: {
-    required: true,
-  },
   blog: {
     required: false,
   }
@@ -57,5 +37,19 @@ const gotoBlog = () => {
 </script>
 
 <style scoped>
+.truncate-ellipsis {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
+.truncate-ellipsis-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 </style>
