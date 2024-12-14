@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white w-[24%] h-auto rounded-2xl flex flex-col justify-start">
+  <div class="bg-white w-[24%] 2xl:w-[32%] xl:w-[48%] sm:w-full h-auto rounded-2xl flex flex-col justify-start">
     <div class="bg-[url('/assets/images/main/title.png')] rounded-t-2xl h-[150px]"></div>
     <div class="flex flex-col justify-between p-5">
       <div class="relative -top-8 flex items-center justify-start gap-1">
@@ -20,19 +20,12 @@
 </template>
 
 <script setup lang="ts">
-import { useRouter } from "vue-router";
 
 defineProps({
   blog: {
     required: false,
   }
 });
-
-const router = useRouter();
-
-const gotoBlog = () => {
-  router.push('/universities/stanford-university');
-}
 
 </script>
 
