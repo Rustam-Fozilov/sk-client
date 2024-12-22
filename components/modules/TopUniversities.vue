@@ -11,13 +11,26 @@
       </div>
 
       <div>
-        <university-carousel-list/>
+        <university-carousel-list :universities="universities"/>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import type { University } from '~/core/types/university.type';
 import UniversityCarouselList from '../main/UniversityCarouselList.vue';
+import { UniversityService } from '~/core/services/university.service';
+
+const universities = ref<University[]>([]);
+const service = new UniversityService();
+
+onMounted(() => {
+  fetchUniversities();
+});
+
+const fetchUniversities = async () => {
+  universities.value = await service.fetchUniversities();  
+};
 
 </script>

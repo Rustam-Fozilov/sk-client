@@ -48,7 +48,7 @@
 
         <div id="university_cards">
           <div class="mt-12 lg:mt-5">
-            <university-list/>
+            <university-list :universities="universities"/>
           </div>
         </div>
       </div>
@@ -63,9 +63,22 @@
 <script setup lang="ts">
 import UniversityList from '~/components/main/UniversityList.vue';
 import TheFooter from '~/components/TheFooter.vue';
+import { UniversityService } from '~/core/services/university.service';
+import type { University } from '~/core/types/university.type';
 
 definePageMeta({
   layout: "main-layout"
-})
+});
+
+const universities = ref<University[]>([]);
+const service = new UniversityService();
+
+onMounted(() => {
+  fetchUniversities();
+});
+
+const fetchUniversities = async () => {
+  universities.value = await service.fetchUniversities();  
+};
 
 </script>

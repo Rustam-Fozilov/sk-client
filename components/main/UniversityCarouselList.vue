@@ -10,11 +10,12 @@
 
 <script setup lang="ts">
 import UniversityCard from '../modules/UniversityCard.vue';
+import { type University } from '~/core/types/university.type';
 
 defineProps({
   universities: {
     required: false,
-    type: Array,
+    type: Array as () => University[],
     default: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
   }
 })

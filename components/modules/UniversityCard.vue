@@ -14,14 +14,14 @@
         </div>
         <div class="w-full">
           <div class="bg-white p-5 w-full rounded-2xl flex gap-1 justify-between">
-            <div class="text-ellipsis overflow-hidden whitespace-nowrap">
+            <div class="text-ellipsis overflow-hidden whitespace-nowrap text-left">
               <div class="sub-title text-ellipsis overflow-hidden whitespace-nowrap">
-                Harvard University
+                {{ university.name }}
               </div>
               <div class="flex gap-1 items-center">
                 <location-icon width="12"/>
                 <div class="text-ellipsis overflow-hidden whitespace-nowrap">
-                  Cambridge
+                  {{ university.address }}
                 </div>
               </div>
             </div>
@@ -42,6 +42,7 @@
 <script setup lang="ts">
 import LocationIcon from "~/components/ui/LocationIcon.vue";
 import { useRouter } from "vue-router";
+import { type University } from "~/core/types/university.type";
 
 defineProps({
   width: {
@@ -51,7 +52,8 @@ defineProps({
     required: true,
   },
   university: {
-    required: false,
+    type: Object as () => University,
+    required: true,
   }
 });
 
