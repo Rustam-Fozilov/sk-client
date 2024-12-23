@@ -49,7 +49,7 @@
         <div id="university_cards">
           <div class="mt-12 lg:mt-5">
             <simple-loader v-if="loading" class="text-center"/>
-            <university-list v-if="!loading" :universities="universities"/>
+            <university-list :universities="universities"/>
           </div>
         </div>
       </div>

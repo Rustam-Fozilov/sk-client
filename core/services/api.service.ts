@@ -20,7 +20,7 @@ export class ApiService {
         })
   }
 
-  public async post(url: string, params: object, headers?: object) {
+  public async post(url: string, params?: object, headers?: object) {
     return axios
         .post(this.baseUrl + url, params, headers)
   }
