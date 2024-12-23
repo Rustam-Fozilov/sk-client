@@ -21,7 +21,7 @@ export class ApiService {
   }
 
   public async post(url: string, params?: object, headers?: object) {
-    return axios
+    return await axios
         .post(this.baseUrl + url, params, headers)
   }
 

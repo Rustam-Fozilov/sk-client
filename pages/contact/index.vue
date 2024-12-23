@@ -31,23 +31,23 @@
         <div class="w-[25rem] mt-7 sm:mt-4 leading-none sm:w-full">Вы можете написать нам по любому интересующему вас вопросу: от обучения до сотрудничества</div>
       </div>
 
-      <form action="" class="md:w-full">
+      <form @submit.prevent="submitForm" class="md:w-full">
         <div class="w-[420px] lg:w-full">
           <div class="bg-soft-white border border-black border-opacity-10 py-3 px-5 rounded-lg w-full">
-            <input required type="text" placeholder="Ism" class="bg-transparent w-full outline-none">
+            <input required v-model="name" type="text" placeholder="Ism" class="bg-transparent w-full outline-none">
           </div>
           <div class="flex justify-between sm:flex-col sm:justify-start sm:items-start">
             <div class="bg-soft-white border flex border-black border-opacity-10 md:w-[48%] sm:w-full py-3 px-5 rounded-lg mt-5">
               <div>+998</div>
-              <input required maxlength="9" type="phone" class="bg-transparent w-full outline-none">
+              <input required v-model="phone" maxlength="9" type="phone" class="bg-transparent w-full outline-none">
             </div>
             <div class="bg-soft-white border border-black border-opacity-10 md:w-[48%] sm:w-full py-3 px-5 rounded-lg mt-5 ml-5 sm:ml-0">
-              <input required type="email" placeholder="Email" class="bg-transparent w-full outline-none">
+              <input v-model="email" type="email" placeholder="Email" class="bg-transparent w-full outline-none">
             </div>
           </div>
           <div>
             <div class="bg-soft-white border border-black border-opacity-10 py-3 px-5 rounded-lg mt-5">
-              <textarea required rows="3" placeholder="Xabar" class="bg-transparent w-full outline-none"></textarea>
+              <textarea required v-model="message" rows="3" placeholder="Xabar" class="bg-transparent w-full outline-none"></textarea>
             </div>
           </div>
           <div class="mt-5">
@@ -63,9 +63,25 @@
 </template>
 
 <script setup lang="ts">
+import { FormService } from '~/core/services/form.service';
+
+const name = ref<string>('');
+const phone = ref<string>('');
+const email = ref<string>('');
+const message = ref<string>('');
+const service = new FormService();
 
 definePageMeta({
   layout: 'main-layout'
-})
+});
+
+const submitForm = async () => {
+  await service.submitForm({
+    name: name.value,
+    phone: '998' + phone.value,
+    email: email.value,
+    message: message.value,
+  });
+}
 
 </script>
