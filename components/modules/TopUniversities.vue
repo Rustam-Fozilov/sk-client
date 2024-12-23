@@ -30,7 +30,9 @@ onMounted(() => {
 });
 
 const fetchUniversities = async () => {
-  universities.value = await service.fetchUniversities();  
+  universities.value = await service.fetchUniversities({
+    per_page: 10,
+  });  
 };
 
 </script>

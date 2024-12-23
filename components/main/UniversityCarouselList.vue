@@ -11,6 +11,7 @@
 <script setup lang="ts">
 import UniversityCard from '../modules/UniversityCard.vue';
 import { type University } from '~/core/types/university.type';
+import { UniversityService } from '~/core/services/university.service';
 
 defineProps({
   universities: {
@@ -23,6 +24,8 @@ defineProps({
 const windowWidth = ref<Number | any>(1920);
 const realWidth = ref<Number | any>(0);
 const itemsToShow = ref<Number>(4);
+const service = new UniversityService();
+const universities = ref<University[]>([]);
 
 const calculateCardWidth = () => {
   windowWidth.value = window.innerWidth;
@@ -52,10 +55,17 @@ const calculateCardWidth = () => {
 
     itemsToShow.value = 1;
   }
-}
+};
 
-onMounted(() => {
+const fetchUniversities = async () => {
+  universities.value = await service.fetchUniversities({
+    per_page: 10,
+  });  
+};
+
+onMounted(async () => {
   calculateCardWidth();
+  await fetchUniversities();
 
   window.addEventListener('resize', () => {
     calculateCardWidth();

@@ -4,44 +4,19 @@
       <div>
         <div class="my-16 text-center xl:my-10 sm:my-5">
           <div class="title sm:mid-title">
-            Harvard University
+            {{ university?.name }}
           </div>
           <div class="sub-title">
-            Cambridge, US
+            {{ university?.address }}
           </div>
         </div>
         <div class="w-full h-[650px] lg:h-[450px] sm:h-[300px]">
-          <img class="w-full h-full object-cover rounded-3xl sm:rounded-2xl" src="/assets/images/main/banner.png"
+          <img class="w-full h-full object-cover rounded-3xl sm:rounded-2xl" :src="baseApiUrl + '/storage/' + university?.image_link"
           alt="Banner" />
         </div>
         <div class="mt-12 w-full bg-white rounded-3xl sm:rounded-2xl py-12 px-60 2xl:px-14 sm:mt-5 sm:py-6 sm:px-6">
-          <div class="mid-title sm:sub-title">
-            Pathway
-          </div>
           <div class="mt-12 text-sm 2xl:mt-7 sm:mt-2 sm:text-rg">
-            Princeton University - 1746-yilda ochilgan New Jersey shtatining Princeton
-            shaxrida joylashgan AQSHning 4-eng qadimiy universiteti va Amerika revolutsiyasidan
-            oldin tashkil etilgan 9 ta universitetlardan biri. 8500 ga yaqin studentlar
-            tahsil oladi. Prinston universitetining asosiy kampusi New Jersey shtatining
-            Princeton shahri markazida joylashgan. Kampusda 10 ta kutubxona, san'at
-            muzeyi, teatr, basseynli katta fitnes markazi va tennis korti mavjud. Prinston
-            universitetining asosiy kampusi New Jersey shtatining Princeton shahri
-            markazida joylashgan. Kampusda 10 ta kutubxona, san'at muzeyi, teatr, basseynli
-            katta fitnes markazi va tennis korti mavjud. Prinston universitetining
-            asosiy kampusi New Jersey shtatining Princeton shahri markazida joylashgan.
-            Kampusda 10 ta kutubxona, san'at muzeyi, teatr, basseynli katta fitnes
-            markazi va tennis korti mavjud. Prinston universitetining asosiy kampusi
-            New Jersey shtatining Princeton shahri markazida joylashgan. Kampusda 10
-            ta kutubxona, san'at muzeyi, teatr, basseynli katta fitnes markazi va tennis
-            korti mavjud. Prinston universitetining asosiy kampusi New Jersey shtatining
-            Princeton shahri markazida joylashgan. Kampusda 10 ta kutubxona, san'at
-            muzeyi, teatr, basseynli katta fitnes markazi va tennis korti mavjud. Prinston
-            universitetining asosiy kampusi New Jersey shtatining Princeton shahri
-            markazida joylashgan. Kampusda 10 ta kutubxona, san'at muzeyi, teatr, basseynli
-            katta fitnes markazi va tennis korti mavjud. Prinston universitetining
-            asosiy kampusi New Jersey shtatining Princeton shahri markazida joylashgan.
-            Kampusda 10 ta kutubxona, san'at muzeyi, teatr, basseynli katta fitnes
-            markazi va tennis korti mavjud.
+            {{ university?.info }}
           </div>
           <div class="w-full h-px mt-12 bg-black bg-opacity-20 sm:mt-5"></div>
           <div class="mt-7 flex gap-5 items-center sm:mt-5 sm:gap-3">
@@ -82,6 +57,9 @@ import SaveIcon2 from '~/components/ui/SaveIcon2.vue';
 import SaveYellowIcon from '~/components/ui/SaveYellowIcon.vue';
 import LikeIcon from '~/components/ui/LikeIcon.vue';
 import LikeIconPressed from '~/components/ui/LikeIconPressed.vue';
+import { UniversityService } from '~/core/services/university.service';
+import type { University } from '~/core/types/university.type';
+import { getBaseApiUrl } from '~/core/utils/apiUrl.util';
 
 definePageMeta({
   layout: "main-layout",
@@ -90,6 +68,11 @@ definePageMeta({
 const isSaved = ref(false);
 const isShared = ref(false);
 const isLiked = ref(false);
+const service = new UniversityService();
+const university = ref<University|null>();
+const route = useRoute();
+const id = Number(route.params.name);
+const baseApiUrl = getBaseApiUrl();
 
 const toggleSaved = () => {
   isSaved.value = !isSaved.value;
@@ -101,6 +84,14 @@ const makeShared = () => {
 
 const makeLiked = () => {
   isLiked.value = !isLiked.value;
+};
+
+onMounted(() => {
+  fetchUniversity();
+});
+
+const fetchUniversity = async () => {
+  university.value = await service.fetchUniversityById(id);
 };
 
 </script>

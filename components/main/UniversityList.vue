@@ -3,7 +3,7 @@
     <div v-if="realWidth > 0" class="flex gap-5 flex-wrap">
       <university-card v-for="university in universities" :university="university" :width="`${realWidth}px`" :height="`${realWidth}px`"/>
     </div>
-    <pagination></pagination>
+    <pagination v-if="universities.length > 0"></pagination>
   </div>
 </template>
 
@@ -18,7 +18,7 @@ defineProps({
     type: Array as () => University[],
     default: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
   }
-})
+});
 
 const windowWidth = ref<Number | any>(1920);
 const realWidth = ref<Number | any>(0);

@@ -4,7 +4,7 @@
         @click="gotoUniversity"
         @mouseover="isMouseOveredToCard = true"
         @mouseleave="isMouseOveredToCard = false"
-        :style="`width: ${width}; height: ${height}`"
+        :style="`width: ${width}; height: ${height}; background-image: url('${baseApiUrl + '/storage/' + university.image_link}');`"
         class="cursor-pointer rounded-3xl bg-[url('/assets/images/main/banner.png')] bg-cover p-5"
     >
       <div class="flex flex-col justify-between h-full items-end">
@@ -43,8 +43,9 @@
 import LocationIcon from "~/components/ui/LocationIcon.vue";
 import { useRouter } from "vue-router";
 import { type University } from "~/core/types/university.type";
+import { getBaseApiUrl } from "~/core/utils/apiUrl.util";
 
-defineProps({
+const props = defineProps({
   width: {
     required: true,
   },
@@ -60,9 +61,10 @@ defineProps({
 const isMouseOveredToCard = ref(false);
 const router = useRouter();
 const isSaved = ref(false);
+const baseApiUrl = getBaseApiUrl();
 
 const gotoUniversity = () => {
-  router.push('/universities/stanford-university');
+  router.push('/universities/' + props.university.id);
 }
 
 const toggleSaved = () => {

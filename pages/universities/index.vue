@@ -34,7 +34,7 @@
               <form action="">
                 <div class="border-[1px] border-black border-opacity-20 rounded-full w-fit bg-soft-white px-7 sm:px-5 py-4 sm:py-3 flex gap-3 items-center justify-start">
                   <search-icon width="22px" class="opacity-70"/>
-                  <input type="text" placeholder="Qidiruv..." class="outline-none bg-transparent sub-title">
+                  <input @input="searchUniversities" v-model="search" type="text" placeholder="Qidiruv..." class="outline-none bg-transparent sub-title">
                 </div>
               </form>
             </div>
@@ -48,7 +48,8 @@
 
         <div id="university_cards">
           <div class="mt-12 lg:mt-5">
-            <university-list :universities="universities"/>
+            <simple-loader v-if="loading" class="text-center"/>
+            <university-list v-if="!loading" :universities="universities"/>
           </div>
         </div>
       </div>
@@ -72,13 +73,38 @@ definePageMeta({
 
 const universities = ref<University[]>([]);
 const service = new UniversityService();
+const search = ref('');
+const loading = ref(false);
 
 onMounted(() => {
-  fetchUniversities();
+  fetchUniversities({
+    per_page: 16
+  });
 });
 
-const fetchUniversities = async () => {
-  universities.value = await service.fetchUniversities();  
+const fetchUniversities = async (params?: Object) => {
+  loading.value = true;
+
+  universities.value = await service.fetchUniversities(params);
+
+  loading.value = false;
+};
+
+const searchUniversities = async () => {
+  if (search.value.length === 0) {
+    fetchUniversities({
+      per_page: 16
+    });
+
+    return;
+  }
+
+  if (search.value.length >= 3) {
+    fetchUniversities({
+      per_page: 16,
+      search: search.value
+    });
+  }
 };
 
 </script>
