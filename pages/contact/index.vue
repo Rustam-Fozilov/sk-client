@@ -51,7 +51,9 @@
             </div>
           </div>
           <div class="mt-5">
-            <button type="submit" class="bg-soft-blue w-full font-tt-medium text-white rounded-lg px-5 py-3">Yuborish</button>
+            <button :disabled="loading" type="submit" class="bg-soft-blue disabled:cursor-not-allowed w-full font-tt-medium text-white rounded-lg px-5 py-3">
+              Yuborish
+            </button>
           </div>
         </div>
       </form>
@@ -70,18 +72,21 @@ const phone = ref<string>('');
 const email = ref<string>('');
 const message = ref<string>('');
 const service = new FormService();
+const loading = ref<boolean>(false);
 
 definePageMeta({
   layout: 'main-layout'
 });
 
 const submitForm = async () => {
+  loading.value = true;
   await service.submitForm({
     name: name.value,
     phone: '998' + phone.value,
     email: email.value,
     message: message.value,
   });
+  loading.value = false;
 }
 
 </script>
