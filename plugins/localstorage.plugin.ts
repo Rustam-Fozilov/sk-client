@@ -1,7 +1,7 @@
 export default defineNuxtPlugin(() => {
   return {
     provide: {
-      getItem(key: string) {
+      getLocalItem(key: string) {
         if (process.client) {
           return localStorage.getItem(key);
         } else {
@@ -9,7 +9,7 @@ export default defineNuxtPlugin(() => {
         }
       },
 
-      setItem(key: string, value: any) {
+      setLocalItem(key: string, value: any) {
         if (process.client) {
           return localStorage.setItem(key, value);
         } else {
@@ -17,7 +17,7 @@ export default defineNuxtPlugin(() => {
         }
       },
 
-      removeItem(key: string) {
+      removeLocalItem(key: string) {
         if (process.client) {
           return localStorage.removeItem(key);
         } else {

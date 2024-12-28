@@ -33,16 +33,29 @@
 </template>
 
 <script setup lang="ts">
+import { AuthService } from '~/core/services/auth.service';
 
 definePageMeta({
   layout: "main-layout"
-})
+});
 
 const logoWidth = ref('120px');
 const code = ref(["", "", "", "", "", ""]);
 const inputs = ref<HTMLInputElement[]>([]);
+const authService = new AuthService();
+const router = useRouter();
+const route = useRoute();
+const redirect = route.query.redirect as string;
+const { $getSessionItem } = useNuxtApp();
 
 onMounted(() => {
+  const token = $getSessionItem('authToken');
+
+  if (token) {
+    router.push('/');
+    return;
+  }
+
   if (window.innerWidth <= 640) {
     logoWidth.value = '80px';
   }
@@ -56,7 +69,43 @@ onMounted(() => {
   })
 
   inputs.value[0]?.focus();
-})
+});
+
+onUpdated(async () => {
+  if (code.value.join("").length === 6) {
+    inputs.value.forEach((input) => {
+      input.disabled = true;
+      input.classList.add("opacity-50");
+    });
+
+    await submitLogin();
+  }
+});
+
+const submitLogin = async () => {
+  const codeString = code.value.join("");
+  const response: any = await authService.login(codeString);
+
+  if (response) {
+    const me = await authService.me();
+
+    if (me) {
+      if (redirect) {
+        window.location.href = '/' + redirect;
+      } else {
+        window.location.href = '/';
+      }
+    }
+  } else {
+    inputs.value.forEach((input) => {
+      input.disabled = false;
+      input.classList.remove("opacity-50");
+    });
+
+    code.value = ["", "", "", "", "", ""];
+    inputs.value[0]?.focus();
+  }
+}
 
 const focusNext = () => {
   const current = inputs.value.findIndex((input) => document.activeElement === input);

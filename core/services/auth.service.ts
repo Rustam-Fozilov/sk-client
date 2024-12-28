@@ -1,33 +1,72 @@
+import { ApiService } from "./api.service";
+import Swal from "sweetalert2";
+
 export class AuthService {
-  private login: string;
-  private password: string;
+  private apiService = new ApiService();
 
-  constructor(login = '', password = '') {
-    this.login = login;
-    this.password = password;
+  public async login(code: string) {
+    return await this.apiService
+      .post('/api/auth/confirm/code', {
+        code: code,
+      })
+      .then(res => {
+        if (res.data.access_token) {
+          sessionStorage.setItem('authToken', res.data.access_token);
+          return true;
+        } else {
+          Swal.fire({
+            title: 'Nimadir xato ketti',
+            text: 'Qayta urinib ko\'ring',
+            icon: 'error',
+            customClass: {
+              title: 'text-md',
+              confirmButton: "bg-primary-blue text-white font-tt-medium rounded-lg",
+            },
+          });
+          return false;
+        }
+      })
+      .catch(err => {
+        Swal.fire({
+          title: 'Xato kod kiritdingiz',
+          icon: 'error',
+          customClass: {
+            title: 'text-md',
+            confirmButton: "bg-primary-blue text-white font-tt-medium rounded-lg",
+          },
+        });
+        return false;
+      });
   }
 
-  public getLogin() {
-    return this.login;
+  public async me() {
+    return await this.apiService
+      .get('/api/user/me')
+      .then(res => {
+        sessionStorage.setItem('me', JSON.stringify(res.data));
+        return true;
+      })
+      .catch(err => {
+        this.logout();
+      });
   }
 
-  public setLogin(login: string) {
-    this.login = login;
-  }
+  public async logout() {
+    sessionStorage.removeItem('authToken');
+    sessionStorage.removeItem('me');
 
-  public getPassword() {
-    return this.password;
-  }
-
-  public setPassword(password: string) {
-    return this.password;
-  }
-
-  public userLogin() {
-    console.log('User Login');
-  }
-
-  public userRegister() {
-    console.log('User Register');
+    await this.apiService
+      .get('/api/logout')
+      .then(res => {})
+      .catch(err => {
+        Swal.fire({
+          title: 'Nimadir xato ketti',
+          icon: 'error',
+          customClass: {
+            title: 'text-md',
+            confirmButton: "bg-primary-blue text-white font-tt-medium rounded-lg",
+          },
+        });
+      });
   }
 }

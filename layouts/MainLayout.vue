@@ -27,7 +27,7 @@ onMounted(() => {
     if (e.key === 'Escape') {
       modalService.closeAllModals();
     }
-  })
+  });
 })
 
 </script>

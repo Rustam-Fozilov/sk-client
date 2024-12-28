@@ -24,16 +24,16 @@
               </div>
             </template>
           </BtnSecondary>
-          <BtnPrimary v-if="true" @clicked="gotoLogin">
+          <BtnPrimary v-if="!authToken" @clicked="gotoLogin">
             <template #btn-primary>
               Kirish
             </template>
           </BtnPrimary>
-          <BtnSecondary v-if="false" @clicked="toggleProfileModal">
+          <BtnSecondary v-if="authToken" @clicked="toggleProfileModal">
             <template #btn-secondary>
               <div class="flex items-center gap-2.5 font-tt-regular">
                 <user-icon/>
-                <div>Rustam</div>
+                <div>{{ me?.name }}</div>
               </div>
             </template>
           </BtnSecondary>
@@ -61,7 +61,7 @@
     </div>
     <div>
       <navbar-float-menu/>
-      <profile-modal v-if="isProfileOpened"/>
+      <profile-modal :me="me" v-if="isProfileOpened"/>
     </div>
   </div>
 </template>
@@ -71,12 +71,24 @@ import TheLogo from "@/components/ui/TheLogo.vue";
 import BtnPrimary from "@/components/ui/BtnPrimary.vue";
 import BtnSecondary from "@/components/ui/BtnSecondary.vue";
 import NavbarFloatMenu from "./main/NavbarFloatMenu.vue";
+import ProfileModal from "./modals/ProfileModal.vue";
 import { useIsProfileOpened } from "@/composables/modals.composable";
 import { ModalService } from "~/core/services/modal.service";
 
 const isProfileOpened = useIsProfileOpened();
 const router = useRouter();
 const modalService = new ModalService();
+const authToken = ref<string | null>();
+const { $getSessionItem } = useNuxtApp();
+const me = ref<any>();
+
+onBeforeMount(() => {
+  authToken.value = $getSessionItem('authToken');
+
+  if (authToken.value) {
+    me.value = JSON.parse($getSessionItem('me') ?? '{}');
+  }
+});
 
 const openSearchModal = () => {
   modalService.openSearchModal();
