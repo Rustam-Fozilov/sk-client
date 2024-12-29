@@ -39,11 +39,11 @@
               </form>
             </div>
           </div>
-          <div class="mt-8 font-tt-regular flex gap-2">
+          <!-- <div class="mt-8 font-tt-regular flex gap-2">
             <div class="opacity-70">Saralash:</div>
             <div class="font-tt-medium cursor-pointer hover:opacity-100">Yangi qo'shilganlar</div>
             <div class="cursor-pointer opacity-70 hover:opacity-100 transition duration-300">Mashxurlar</div>
-          </div>
+          </div> -->
         </div>
 
         <div id="university_cards">
@@ -65,6 +65,7 @@
 import UniversityList from '~/components/main/UniversityList.vue';
 import TheFooter from '~/components/TheFooter.vue';
 import { UniversityService } from '~/core/services/university.service';
+import SimpleLoader from '~/components/ui/SimpleLoader.vue';
 import type { University } from '~/core/types/university.type';
 
 definePageMeta({
@@ -76,23 +77,24 @@ const service = new UniversityService();
 const search = ref('');
 const loading = ref(false);
 
-onMounted(() => {
-  fetchUniversities({
+onMounted(async () => {
+  universities.value = await fetchUniversities({
     per_page: 16
-  });
+  });  
 });
 
 const fetchUniversities = async (params?: Object) => {
   loading.value = true;
 
-  universities.value = await service.fetchUniversities(params);
+  const result = await service.fetchUniversities(params);
 
   loading.value = false;
+  return result;
 };
 
 const searchUniversities = async () => {
   if (search.value.length === 0) {
-    fetchUniversities({
+    universities.value = await fetchUniversities({
       per_page: 16
     });
 
@@ -100,7 +102,7 @@ const searchUniversities = async () => {
   }
 
   if (search.value.length >= 3) {
-    fetchUniversities({
+    universities.value = await fetchUniversities({
       per_page: 16,
       search: search.value
     });

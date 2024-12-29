@@ -51,12 +51,13 @@ export class ApiService {
       })
   }
 
-  public async delete(url: string, headers?: object) {
+  public async delete(url: string, params?: object, headers?: object) {
     const token = sessionStorage.getItem('authToken');
     const authHeader = token ? { Authorization: `Bearer ${token}` } : {};
 
     return await axios
       .delete(this.baseUrl + url, {
+        params: params,
         headers: {
           ...authHeader,
           ...headers,

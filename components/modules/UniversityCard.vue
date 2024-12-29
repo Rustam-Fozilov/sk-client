@@ -44,6 +44,7 @@ import LocationIcon from "~/components/ui/LocationIcon.vue";
 import { useRouter } from "vue-router";
 import { type University } from "~/core/types/university.type";
 import { getBaseApiUrl } from "~/core/utils/apiUrl.util";
+import { UniversityService } from "~/core/services/university.service";
 
 const props = defineProps({
   width: {
@@ -60,15 +61,46 @@ const props = defineProps({
 
 const isMouseOveredToCard = ref(false);
 const router = useRouter();
-const isSaved = ref(false);
+const isSaved = ref<boolean|undefined>(props.university?.is_saved ?? false);
+const changeManual = ref(false);
 const baseApiUrl = getBaseApiUrl();
+const service = new UniversityService();
+const { $getSessionItem } = useNuxtApp();
+
+onMounted(() => {
+  if (props.university?.is_saved !== undefined || props.university?.is_saved !== null) {
+    isSaved.value = props.university?.is_saved;
+  }
+});
+
+onUpdated(() => {
+  if (
+    props.university?.is_saved !== undefined &&
+    props.university?.is_saved !== isSaved.value && 
+    !changeManual.value
+  ) {
+    isSaved.value = props.university?.is_saved;
+  }
+});
 
 const gotoUniversity = () => {
   router.push('/universities/' + props.university.id);
-}
+};
 
-const toggleSaved = () => {
+const toggleSaved = async () => {
+  if (!$getSessionItem('me')) {
+    router.push(`/login?redirect=universities/${props.university.id}`);
+    return;
+  }
+
+  changeManual.value = true;
   isSaved.value = !isSaved.value;
-}
+
+  if (isSaved.value) {
+    await service.saveUniversity(props.university.id);
+  } else {
+    await service.unsaveUniversity(props.university.id);
+  }
+};
 
 </script>

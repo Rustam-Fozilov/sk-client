@@ -52,9 +52,6 @@ export class AuthService {
   }
 
   public async logout() {
-    sessionStorage.removeItem('authToken');
-    sessionStorage.removeItem('me');
-
     await this.apiService
       .get('/api/logout')
       .then(res => {})
@@ -68,5 +65,8 @@ export class AuthService {
           },
         });
       });
+
+    sessionStorage.removeItem('authToken');
+    sessionStorage.removeItem('me');
   }
 }

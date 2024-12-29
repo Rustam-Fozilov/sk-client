@@ -14,9 +14,8 @@ import { type University } from '~/core/types/university.type';
 
 defineProps({
   universities: {
-    required: false,
+    required: true,
     type: Array as () => University[],
-    default: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
   }
 });
 
@@ -50,7 +49,7 @@ onMounted(() => {
 
   window.addEventListener('resize', () => {
     calculateCardWidth();
-  })
-})
+  });
+});
 
 </script>

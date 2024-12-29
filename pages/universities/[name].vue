@@ -22,7 +22,7 @@
               <like-icon v-if="!isLiked" />
               <like-icon-pressed v-if="isLiked" />
               <div>
-                12
+                {{ university?.like_count }}
               </div>
             </div>
             <div @click="toggleSaved" class="cursor-pointer">
@@ -36,7 +36,7 @@
           </div>
         </div>
         <div class="mt-12 sm:mt-7">
-          <university-carousel-list />
+          <university-carousel-list :universities="universities"/>
         </div>
       </div>
     </div>
@@ -63,17 +63,31 @@ definePageMeta({
   layout: "main-layout",
 });
 
-const isSaved = ref(false);
-const isShared = ref(false);
-const isLiked = ref(false);
+const { $getSessionItem } = useNuxtApp();
+const isSaved = ref<boolean|undefined>(false);
+const isShared = ref<boolean|undefined>(false);
+const isLiked = ref<boolean|undefined>(false);
 const service = new UniversityService();
 const university = ref<University|null>();
+const universities = ref<University[]>([]);
 const route = useRoute();
+const router = useRouter();
 const id = Number(route.params.name);
 const baseApiUrl = getBaseApiUrl();
 
 const toggleSaved = () => {
+  if (!$getSessionItem('me')) {
+    router.push(`/login?redirect=universities/${id}`);
+    return;
+  }
+
   isSaved.value = !isSaved.value;
+
+  if (isSaved.value) {
+    service.saveUniversity(id);
+  } else {
+    service.unsaveUniversity(id);
+  }
 };
 
 const makeShared = () => {
@@ -81,15 +95,39 @@ const makeShared = () => {
 };
 
 const makeLiked = () => {
+  if (!$getSessionItem('me')) {
+    router.push(`/login?redirect=universities/${id}`);
+    return;
+  }
+
   isLiked.value = !isLiked.value;
+
+  if (isLiked.value) {
+    university.value!.like_count++;
+    service.likeUniversity(id);
+  } else {
+    university.value!.like_count--;
+    service.unlikeUniversity(id);
+  }
 };
 
-onMounted(() => {
-  fetchUniversity();
+onMounted(async () => {
+  await fetchUniversity();
+
+  isSaved.value = university.value?.is_saved;
+  isLiked.value = university.value?.is_liked;
 });
 
 const fetchUniversity = async () => {
   university.value = await service.fetchUniversityById(id);
 };
+
+const fetchUniversities = async () => {
+  universities.value = await service.fetchUniversities({
+    per_page: 10,
+  });  
+};
+
+await fetchUniversities();
 
 </script>

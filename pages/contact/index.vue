@@ -87,6 +87,11 @@ const submitForm = async () => {
     message: message.value,
   });
   loading.value = false;
-}
+
+  name.value = '';
+  phone.value = '';
+  email.value = '';
+  message.value = '';
+};
 
 </script>

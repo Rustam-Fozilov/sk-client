@@ -50,8 +50,8 @@ const gotoSaved = () => {
   router.push('/profile/saved');
 }
 
-const logout = () => {
-  authService.logout();
+const logout = async () => {
+  await authService.logout();
   window.location.reload();
 }
 
