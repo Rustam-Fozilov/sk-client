@@ -6,7 +6,7 @@
         <p class="opacity-70 mt-3 md:mt-2">Пишем про языковые курсы за рубежом и поступление в заграничные вузы, а также изучение английского онлайн.</p>
       </div>
 
-      <div class="flex justify-center mt-7 xl:hidden">
+      <!-- <div class="flex justify-center mt-7 xl:hidden">
         <div class="flex flex-wrap gap-3 items-center justify-center">
           <div v-for="i in 5" class="flex gap-3">
             <BtnPrimary v-if="i === 3">
@@ -25,7 +25,7 @@
 
       <div class="mt-12 text-center mid-title xl:hidden">
         Образование за рубежом
-      </div>
+      </div> -->
 
       <div class="mt-12 md:mt-5">
         <BlogHeaderCard/>
@@ -60,11 +60,20 @@
 
 <script setup lang="ts">
 import BlogList from '~/components/main/BlogList.vue';
-import BtnSecondary from '~/components/ui/BtnSecondary.vue';
 import BlogHeaderCard from '~/components/modules/BlogHeaderCard.vue';
+import { BlogService } from '~/core/services/blog.service';
+import { type Blog } from '~/core/types/blog.type';
 
 definePageMeta({
   layout: "main-layout"
+});
+
+const blogs = ref<Blog[]>([]);
+const latestBlog = ref<Blog|null>(null);
+const service = new BlogService();
+
+onMounted(async () => {
+  latestBlog.value = await service.latestBlog();
 });
 
 </script>

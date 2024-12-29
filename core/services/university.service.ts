@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 
 export class UniversityService {
   public universities: University[] = [];
-  private apiService = new ApiService  
+  private apiService = new ApiService();
 
   public async fetchUniversities(params?: Object, headers?: Object) {
     await this.apiService
