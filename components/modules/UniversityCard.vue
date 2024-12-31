@@ -5,7 +5,7 @@
         @mouseover="isMouseOveredToCard = true"
         @mouseleave="isMouseOveredToCard = false"
         :style="`width: ${width}; height: ${height}; background-image: url('${baseApiUrl + '/storage/' + university.image_link}');`"
-        class="cursor-pointer rounded-3xl bg-[url('/assets/images/main/banner.png')] bg-cover p-5"
+        class="cursor-pointer rounded-3xl bg-cover p-5"
     >
       <div class="flex flex-col justify-between h-full items-end">
         <div @click.stop="toggleSaved">

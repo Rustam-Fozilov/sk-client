@@ -28,7 +28,8 @@
       </div> -->
 
       <div class="mt-12 md:mt-5">
-        <BlogHeaderCard/>
+        <simple-loader v-if="loading" class="text-center"/>
+        <BlogHeaderCard v-if="latestBlog" :blog="latestBlog"/>
       </div>
 
       <div class="my-12 md:my-5">
@@ -37,7 +38,8 @@
         </div>
 
         <div class="mt-12 md:mt-5">
-          <BlogList :blogs="[1, 2, 3, 4]" :paginationView="false"/>
+          <simple-loader v-if="loading" class="text-center"/>
+          <BlogCarouselList :blogs="blogs"/>
         </div>
       </div>
 
@@ -47,6 +49,7 @@
         </div>
 
         <div class="mt-12 md:mt-5">
+          <simple-loader v-if="loading" class="text-center"/>
           <BlogList/>
         </div>
       </div>
@@ -59,10 +62,12 @@
 </template>
 
 <script setup lang="ts">
+import BlogCarouselList from '~/components/main/BlogCarouselList.vue';
 import BlogList from '~/components/main/BlogList.vue';
 import BlogHeaderCard from '~/components/modules/BlogHeaderCard.vue';
 import { BlogService } from '~/core/services/blog.service';
 import { type Blog } from '~/core/types/blog.type';
+import SimpleLoader from '~/components/ui/SimpleLoader.vue';
 
 definePageMeta({
   layout: "main-layout"
@@ -71,9 +76,17 @@ definePageMeta({
 const blogs = ref<Blog[]>([]);
 const latestBlog = ref<Blog|null>(null);
 const service = new BlogService();
+const loading = ref<boolean>(false);
 
 onMounted(async () => {
+  loading.value = true;
+
   latestBlog.value = await service.latestBlog();
+  blogs.value = await service.fetchBlogs({
+    per_page: 10,
+  });
+
+  loading.value = false;
 });
 
 </script>

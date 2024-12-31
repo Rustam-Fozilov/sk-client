@@ -1,28 +1,28 @@
 <template>
   <div>
     <carousel v-if="realWidth > 0" class="flex gap-5 flex-wrap" :items-to-show="itemsToShow" :autoplay="2000">
-      <slide v-for="university in universities" :key="university.id">
-        <university-card :university="university" :width="`${realWidth}px`" :height="`${realWidth}px`"/>
+      <slide v-for="blog in blogs" :key="blog.id">
+        <real-blog-card :blog="blog" :width="`${realWidth}px`" :height="`${realWidth}px`"/>
       </slide>
     </carousel>
   </div>
 </template>
 
 <script setup lang="ts">
-import UniversityCard from '../modules/UniversityCard.vue';
-import { type University } from '~/core/types/university.type';
+import RealBlogCard from '../modules/blog/RealBlogCard.vue';
+import { type Blog } from '~/core/types/blog.type';
 
 const props = defineProps({
-  universities: {
+  blogs: {
     required: true,
-    type: Array as () => University[],
+    type: Array as () => Blog[],
   }
 });
 
 const windowWidth = ref<Number | any>(1920);
 const realWidth = ref<Number | any>(0);
 const itemsToShow = ref<Number>(4);
-const universities = ref<University[]>([]);
+const universities = ref<Blog[]>([]);
 
 const calculateCardWidth = () => {
   windowWidth.value = window.innerWidth;
