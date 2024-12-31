@@ -22,7 +22,7 @@ const props = defineProps({
 const windowWidth = ref<Number | any>(1920);
 const realWidth = ref<Number | any>(0);
 const itemsToShow = ref<Number>(4);
-const universities = ref<Blog[]>([]);
+const blogs = ref<Blog[]>([]);
 
 const calculateCardWidth = () => {
   windowWidth.value = window.innerWidth;
@@ -54,9 +54,10 @@ const calculateCardWidth = () => {
   }
 };
 
-onMounted(async () => {
+onMounted(() => {
   calculateCardWidth();
-  universities.value = props.universities;
+  blogs.value = props.blogs;
+  
 
   window.addEventListener('resize', () => {
     calculateCardWidth();

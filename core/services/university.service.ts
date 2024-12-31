@@ -15,7 +15,7 @@ export class UniversityService {
         this.pagination = res.data.pagination;      
       })
       .catch(err => {
-        console.error(err);
+        //
       });
 
     return {
@@ -33,7 +33,7 @@ export class UniversityService {
         university = res.data;        
       })
       .catch(err => {
-        console.error(err);
+        //
       });
 
     return university;
@@ -73,9 +73,6 @@ export class UniversityService {
         'saveable_type': 'university',
         'saveable_id': id
       })
-      .then(res => {
-        //
-      })
       .catch(err => {
         Swal.fire({
           title: 'Nimadir xato ketti',
@@ -94,9 +91,6 @@ export class UniversityService {
       .delete('/api/user/saved/delete/', {
         'saveable_type': 'university',
         'saveable_id': id
-      })
-      .then(res => {
-        //
       })
       .catch(err => {
         Swal.fire({
@@ -117,9 +111,6 @@ export class UniversityService {
         'likeable_type': 'university',
         'likeable_id': id
       })
-      .then(res => {
-        //
-      })
       .catch(err => {
         Swal.fire({
           title: 'Nimadir xato ketti',
@@ -138,9 +129,6 @@ export class UniversityService {
       .delete('/api/user/liked/delete/', {
         'likeable_type': 'university',
         'likeable_id': id
-      })
-      .then(res => {
-        //
       })
       .catch(err => {
         Swal.fire({

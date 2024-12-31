@@ -29,15 +29,16 @@ const service = new UniversityService();
 const loading = ref(false);
 
 const fetchUniversities = async () => {
+  loading.value = true;
+
   const {universities: result, pagination} = await service.fetchUniversities({
     per_page: 10,
   });
 
   universities.value = result;
+  loading.value = false;
 };
 
-loading.value = true;
 await fetchUniversities();
-loading.value = false;
 
 </script>

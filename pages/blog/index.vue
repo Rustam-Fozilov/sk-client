@@ -28,7 +28,7 @@
       </div> -->
 
       <div class="mt-12 md:mt-5">
-        <simple-loader v-if="loading" class="text-center"/>
+        <simple-loader v-if="headerLoading" class="text-center"/>
         <BlogHeaderCard v-if="latestBlog" :blog="latestBlog"/>
       </div>
 
@@ -39,7 +39,7 @@
 
         <div class="mt-12 md:mt-5">
           <simple-loader v-if="loading" class="text-center"/>
-          <BlogCarouselList :blogs="blogs"/>
+          <BlogCarouselList v-if="mostViewedBlogs.length > 0" :blogs="mostViewedBlogs"/>
         </div>
       </div>
 
@@ -50,7 +50,7 @@
 
         <div class="mt-12 md:mt-5">
           <simple-loader v-if="loading" class="text-center"/>
-          <BlogList/>
+          <BlogList :blogs="blogs" :pagination-data="paginationData"/>
         </div>
       </div>
     </div>
@@ -68,6 +68,7 @@ import BlogHeaderCard from '~/components/modules/BlogHeaderCard.vue';
 import { BlogService } from '~/core/services/blog.service';
 import { type Blog } from '~/core/types/blog.type';
 import SimpleLoader from '~/components/ui/SimpleLoader.vue';
+import { type Pagination } from '~/core/types/pagination.type';
 
 definePageMeta({
   layout: "main-layout"
@@ -75,19 +76,64 @@ definePageMeta({
 
 const blogs = ref<Blog[]>([]);
 const latestBlog = ref<Blog|null>(null);
+const mostViewedBlogs = ref<Blog[]>([]);
 const service = new BlogService();
+const headerLoading = ref<boolean>(false);
 const loading = ref<boolean>(false);
+const route = useRoute();
+const currentPage = ref<number>(route.query.page ? parseInt(route.query.page as string) : 1);
+const per_page = 16;
+const paginationData = ref<Pagination>({
+  total: 0,
+  per_page: per_page,
+  current_page: currentPage.value,
+});
 
 onMounted(async () => {
   loading.value = true;
+  await fetchLastBlog();
+  await fetchMostViewedBlogs();
+  await fetchBlogs({
+    per_page: per_page,
+    page: currentPage.value
+  });
+  loading.value = false;
+});
 
+onUpdated(async () => {
+  const check = route.query.page ? parseInt(route.query.page as string) : 1;
+  if (check !== currentPage.value) {
+    currentPage.value = parseInt(route.query.page as string);
+    loading.value = true;
+    await fetchBlogs({
+      per_page: per_page,
+      page: currentPage.value
+    });
+    loading.value = false;
+    return;
+  }
+});
+
+const fetchLastBlog = async () => {
+  headerLoading.value = true;
   latestBlog.value = await service.latestBlog();
-  blogs.value = await service.fetchBlogs({
+  headerLoading.value = false;
+};
+
+const fetchMostViewedBlogs = async () => {
+  const {blogs: result} = await service.fetchBlogs({
     per_page: 10,
   });
 
-  loading.value = false;
-});
+  mostViewedBlogs.value = result;
+};
+
+const fetchBlogs = async (params?: Object) => {
+  const {blogs: result, pagination} = await service.fetchBlogs(params);
+
+  blogs.value = result;
+  paginationData.value = pagination;
+};
 
 </script>
 

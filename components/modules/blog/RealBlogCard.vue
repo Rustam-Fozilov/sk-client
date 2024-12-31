@@ -1,23 +1,23 @@
 <template>
   <div
-  class="bg-white w-[24%] 2xl:w-[32%] xl:w-[48%] sm:w-full h-auto rounded-2xl flex flex-col justify-start"
+  class="bg-white w-[24%] 2xl:w-[32%] xl:w-[48%] sm:w-full rounded-2xl flex flex-col justify-start"
   :style="`width: ${width}; height: ${height};`"
   >
     <div
     class="rounded-t-2xl h-[150px] bg-cover"
-    :style="`background-image: url('${baseApiUrl + '/storage/' + blog?.image_link}');`"
+    :style="`background-image: url('${baseApiUrl + '/storage/' + blog.image_link}');`"
     ></div>
     <div class="flex flex-col justify-between p-5">
-      <div class="relative -top-8 flex items-center justify-start gap-1">
-        <div v-for="tag in blog?.tags" class="bg-soft-blue text-white border-[2px] border-[#F1F1F1] w-fit px-5 rounded-full">
+      <div class="relative -top-8 flex items-center justify-start gap-0.5">
+        <div v-for="tag in blog.tags" class="bg-soft-blue text-white border-[2px] border-[#F1F1F1] w-fit px-5 rounded-full">
           {{ tag?.name }}
         </div>
       </div>
-      <RouterLink to="/blog/1" class="sub-title truncate-ellipsis cursor-pointer text-start">{{ blog?.title }}</RouterLink>
+      <RouterLink :to="`/blog/${blog.id}`" class="sub-title truncate-ellipsis cursor-pointer text-start">{{ blog.title }}</RouterLink>
       <div class="truncate-ellipsis-3 mt-5 opacity-60 text-start">
-        {{ blog?.content }}
+        {{ blog.content }}
       </div>
-      <div class="opacity-60 mt-3 text-start">{{ blog?.created_at }}</div>
+      <div class="opacity-60 mt-3 text-start">{{ blog.created_at }}</div>
     </div>
   </div>
 </template>
@@ -28,7 +28,7 @@ import { getBaseApiUrl } from '~/core/utils/apiUrl.util';
 
 defineProps({
   blog: {
-    required: false,
+    required: true,
     type: Object as () => Blog,
   },
   width: {

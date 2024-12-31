@@ -1,5 +1,6 @@
 <template>
   <div
+  @click="gotoBlog"
   class="cursor-pointer w-full h-[500px] sm:h-[380px] flex flex-col justify-end items-start rounded-3xl bg-[url('/assets/images/main/blog-full.png')] bg-cover bg-center"
   :style="`background-image: url('${baseApiUrl + '/storage/' + blog.image_link}');`"
   >
@@ -33,7 +34,7 @@ definePageMeta({
   layout: "main-layout"
 });
 
-defineProps({
+const props = defineProps({
   blog: {
     type: Object as PropType<Blog>,
     required: true
@@ -41,6 +42,11 @@ defineProps({
 });
 
 const baseApiUrl = getBaseApiUrl();
+const router = useRouter();
+
+const gotoBlog = () => {
+  router.push(`/blog/${props.blog.id}`);
+};
 
 </script>
 
