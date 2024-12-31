@@ -91,7 +91,12 @@ const toggleSaved = () => {
 };
 
 const makeShared = () => {
+  navigator.clipboard.writeText(window.location.href);
   isShared.value = true;
+
+  setTimeout(() => {
+    isShared.value = false;
+  }, 3000);
 };
 
 const makeLiked = () => {
