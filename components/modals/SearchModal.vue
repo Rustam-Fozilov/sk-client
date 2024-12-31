@@ -59,7 +59,7 @@
                 <div class="sm:text-rg">Universitetlar</div>
               </div>
             </div>
-            <div @click.stop="removeUniverHistory(item.id)" class="opacity-50 hover:opacity-100 transition">
+            <div @click.stop="removeUniverHistory(item.id)" class="opacity-50 hover:bg-gray-300 transition p-3 rounded-full">
               <XIconBlack width="16" />
             </div>
           </div>

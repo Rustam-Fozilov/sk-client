@@ -1,39 +1,34 @@
+import { ApiService } from "./api.service";
+import Swal from "sweetalert2";
+
 export class UserService {
-  private f_name: string | null;
-  private l_name: string | null;
-  private phone: string | null;
-  private email: string | null;
-  private avatar: string | null;
+  private apiService = new ApiService();
 
-  constructor(f_name = null, l_name = null, email = null, phone = null, avatar = null) {
-    this.f_name = f_name;
-    this.l_name = l_name;
-    this.email = email;
-    this.phone = phone;
-    this.avatar = avatar;
-  }
+  public async fetchSavedData(params?: Object, headers?: Object) {
+    let savedItems: any[] = [];
+    let pagination: any = {};
 
-  public getUser() {
+    await this.apiService
+      .get('/api/user/saved/list', params, headers)
+      .then(res => {
+        savedItems = res.data.data;
+        pagination = res.data.pagination;      
+      })
+      .catch(err => {
+        Swal.fire({
+          title: 'Nimadir xato ketti',
+          text: 'Qayta urinib ko\'ring',
+          icon: 'error',
+          customClass: {
+            title: 'text-md',
+            confirmButton: "bg-primary-blue text-white font-tt-medium rounded-lg",
+          },
+        });
+      });
+
     return {
-      f_name: this.f_name,
-      l_name: this.l_name,
-      email: this.email,
-      phone: this.phone,
-      avatar: this.avatar,
-    }
-  }
-
-  public setUser(
-      f_name: string,
-      l_name: string,
-      email: string,
-      phone: string,
-      avatar: string
-  ) {
-    this.f_name = f_name;
-    this.l_name = l_name;
-    this.email = email;
-    this.phone = phone;
-    this.avatar = avatar;
+      savedItems: savedItems,
+      pagination: pagination
+    };
   }
 }

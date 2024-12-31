@@ -10,11 +10,11 @@
             {{ university?.address }}
           </div>
         </div>
-        <div class="w-full h-[650px] lg:h-[450px] sm:h-[300px]">
+        <div v-if="university" class="w-full h-[650px] lg:h-[450px] sm:h-[300px]">
           <img class="w-full h-full object-cover rounded-3xl sm:rounded-2xl" :src="baseApiUrl + '/storage/' + university?.image_link"
           alt="Banner" />
         </div>
-        <div class="mt-12 w-full bg-white rounded-3xl sm:rounded-2xl py-12 px-60 2xl:px-14 sm:mt-5 sm:py-6 sm:px-6">
+        <div v-if="university" class="mt-12 w-full bg-white rounded-3xl sm:rounded-2xl py-12 px-60 2xl:px-14 sm:mt-5 sm:py-6 sm:px-6">
           <div v-html="university?.info" class="mt-12 text-sm 2xl:mt-7 sm:mt-2 sm:text-rg"></div>
           <div class="w-full h-px mt-12 bg-black bg-opacity-20 sm:mt-5"></div>
           <div class="mt-7 flex gap-5 items-center sm:mt-5 sm:gap-3">
@@ -36,7 +36,7 @@
           </div>
         </div>
         <div class="mt-12 sm:mt-7">
-          <university-carousel-list :universities="universities"/>
+          <university-carousel-list v-if="universities && university" :universities="universities"/>
         </div>
       </div>
     </div>
@@ -74,6 +74,13 @@ const route = useRoute();
 const router = useRouter();
 const id = Number(route.params.name);
 const baseApiUrl = getBaseApiUrl();
+
+onMounted(async () => {
+  await fetchUniversity();
+
+  isSaved.value = university.value?.is_saved;
+  isLiked.value = university.value?.is_liked;
+});
 
 const toggleSaved = () => {
   if (!$getSessionItem('me')) {
@@ -115,13 +122,6 @@ const makeLiked = () => {
     service.unlikeUniversity(id);
   }
 };
-
-onMounted(async () => {
-  await fetchUniversity();
-
-  isSaved.value = university.value?.is_saved;
-  isLiked.value = university.value?.is_liked;
-});
 
 const fetchUniversity = async () => {
   university.value = await service.fetchUniversityById(id);

@@ -6,7 +6,12 @@
     <div
     class="rounded-t-2xl h-[150px] bg-cover"
     :style="`background-image: url('${baseApiUrl + '/storage/' + blog.image_link}');`"
-    ></div>
+    >
+    <div @click.stop="toggleSaved" class="p-5 text-end flex justify-end">
+      <save-icon class="cursor-pointer" v-if="!isSaved"/>
+      <save-yellow-icon class="cursor-pointer" v-if="isSaved"/>
+    </div>
+    </div>
     <div class="flex flex-col justify-between p-5">
       <div class="relative -top-8 flex items-center justify-start gap-0.5">
         <div v-for="tag in blog.tags" class="bg-soft-blue text-white border-[2px] border-[#F1F1F1] w-fit px-5 rounded-full">
@@ -23,10 +28,11 @@
 </template>
 
 <script setup lang="ts">
+import { BlogService } from '~/core/services/blog.service';
 import { type Blog } from '~/core/types/blog.type';
 import { getBaseApiUrl } from '~/core/utils/apiUrl.util';
 
-defineProps({
+const props = defineProps({
   blog: {
     required: true,
     type: Object as () => Blog,
@@ -40,6 +46,43 @@ defineProps({
 });
 
 const baseApiUrl = getBaseApiUrl();
+const isSaved = ref<boolean|undefined>(props.blog?.is_saved ?? false);
+const changeManual = ref(false);
+const service = new BlogService();
+const router = useRouter();
+const { $getSessionItem } = useNuxtApp();
+
+onMounted(() => {
+  if (props.blog?.is_saved !== undefined || props.blog?.is_saved !== null) {
+    isSaved.value = props.blog?.is_saved;
+  }
+});
+
+onUpdated(() => {
+  if (
+    props.blog?.is_saved !== undefined &&
+    props.blog?.is_saved !== isSaved.value && 
+    !changeManual.value
+  ) {
+    isSaved.value = props.blog?.is_saved;
+  }
+});
+
+const toggleSaved = async () => {
+  if (!$getSessionItem('me')) {
+    router.push(`/login?redirect=blog/${props.blog.id}`);
+    return;
+  }
+
+  changeManual.value = true;
+  isSaved.value = !isSaved.value;
+
+  if (isSaved.value) {
+    await service.saveBlog(props.blog.id);
+  } else {
+    await service.unsaveBlog(props.blog.id);
+  }
+};
 
 </script>
 

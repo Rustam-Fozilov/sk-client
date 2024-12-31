@@ -38,7 +38,7 @@
         </div>
 
         <div class="mt-12 md:mt-5">
-          <simple-loader v-if="loading" class="text-center"/>
+          <simple-loader v-if="mostViewedBlogs.length < 1" class="text-center"/>
           <BlogCarouselList v-if="mostViewedBlogs.length > 0" :blogs="mostViewedBlogs"/>
         </div>
       </div>

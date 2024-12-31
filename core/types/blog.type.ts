@@ -5,5 +5,8 @@ export type Blog = {
   image_link: string,
   read_minute: number,
   tags: Array<any>,
-  created_at: string
+  created_at: string,
+  is_liked?: boolean,
+  is_saved?: boolean,
+  like_count: number,
 }

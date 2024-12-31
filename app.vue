@@ -1,7 +1,7 @@
 <template>
   <div
       v-if="loading"
-      class="fixed left-0 top-0 h-[5px] w-full z-50 bg-soft-blue drop-shadow-xl"
+      class="fixed left-0 top-0 h-[5px] w-full z-50 bg-primary-blue drop-shadow-xl"
   ></div>
   <NuxtLayout>
     <NuxtPage/>
