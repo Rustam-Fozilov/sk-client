@@ -128,9 +128,11 @@ const fetchUniversity = async () => {
 };
 
 const fetchUniversities = async () => {
-  universities.value = await service.fetchUniversities({
+  const {universities: result} = await service.fetchUniversities({
     per_page: 10,
-  });  
+  });
+
+  universities.value = result;
 };
 
 await fetchUniversities();

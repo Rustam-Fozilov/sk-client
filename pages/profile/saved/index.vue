@@ -6,7 +6,7 @@
 
     <div class="mt-12 md:mt-5">
       <simple-loader v-if="loading" class="text-center"/>
-      <university-list v-if="universities.length > 0" :universities="universities" />
+      <university-list v-if="universities.length > 0" :universities="universities" :pagination-data="paginationData"/>
       <div v-if="universities.length === 0" class="text-center">Sizda hali saqlanganlar yo'q</div>
     </div>
   </div>
@@ -21,31 +21,58 @@ import TheFooter from '~/components/TheFooter.vue';
 import { type University } from '~/core/types/university.type';
 import { UniversityService } from '~/core/services/university.service';
 import SimpleLoader from '~/components/ui/SimpleLoader.vue';
+import { type Pagination } from '~/core/types/pagination.type';
 
 definePageMeta({
   layout: "main-layout"
 });
 
-onBeforeMount(async () => {
+onMounted(async () => {
   if (!$getSessionItem('authToken')) {
     router.push('/login');
     return;
   }
 
-  await fetchUniversities();
+  await fetchUniversities({
+    per_page: perPage,
+    page: currentPage.value
+  });
+});
+
+onUpdated(async () => {
+  const check = route.query.page ? parseInt(route.query.page as string) : 1;
+  if (check !== currentPage.value) {
+    currentPage.value = parseInt(route.query.page as string);
+    await fetchUniversities({
+      per_page: perPage,
+      page: currentPage.value
+    });
+    return;
+  }
 });
 
 const universities = ref<University[]>([]);
-const blogs = ref<any[]>([]);
 const service = new UniversityService();
 const router = useRouter();
+const route = useRoute();
 const { $getSessionItem } = useNuxtApp();
 const loading = ref(false);
+const currentPage = ref<number>(route.query.page ? parseInt(route.query.page as string) : 1);
+const perPage = 16;
 
-const fetchUniversities = async () => {
+const paginationData = ref<Pagination>({
+  total: 0,
+  per_page: perPage,
+  current_page: currentPage.value,
+});
+
+const fetchUniversities = async (params?: Object) => {
   loading.value = true;
 
-  let data = await service.fetchSavedUniversities();
+  const {savedItems: data, pagination} = await service.fetchSavedUniversities(params);
+
+  paginationData.value = pagination;
+  universities.value = [];
   data.filter((item) => item.saveable_type === 'university').map((item) => {
     universities.value.push(item);
   });

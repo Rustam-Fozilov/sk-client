@@ -80,9 +80,9 @@ const router = useRouter();
 const modalService = new ModalService();
 const authToken = ref<string | null>();
 const { $getSessionItem } = useNuxtApp();
-const me = ref<any>();
+const me = ref<any>({});
 
-onBeforeMount(() => {
+onMounted(() => {
   authToken.value = $getSessionItem('authToken');
 
   if (authToken.value) {

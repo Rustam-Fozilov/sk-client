@@ -4,19 +4,24 @@ import Swal from "sweetalert2";
 
 export class UniversityService {
   public universities: University[] = [];
+  public pagination: any = {};
   private apiService = new ApiService();
 
   public async fetchUniversities(params?: Object, headers?: Object) {
     await this.apiService
       .get('/api/universities', params, headers)
       .then(res => {
-        this.universities = res.data.data;        
+        this.universities = res.data.data;
+        this.pagination = res.data.pagination;      
       })
       .catch(err => {
         console.error(err);
       });
 
-    return this.universities;
+    return {
+      universities: this.universities,
+      pagination: this.pagination
+    };
   }
 
   public async fetchUniversityById(id: number, params?: Object, headers?: Object) {
@@ -36,11 +41,13 @@ export class UniversityService {
 
   public async fetchSavedUniversities(params?: Object, headers?: Object) {
     let savedItems: any[] = [];
+    let pagination: any = {};
 
     await this.apiService
       .get('/api/user/saved/list', params, headers)
       .then(res => {
-        savedItems = res.data.data;        
+        savedItems = res.data.data;
+        pagination = res.data.pagination;      
       })
       .catch(err => {
         Swal.fire({
@@ -54,7 +61,10 @@ export class UniversityService {
         });
       });
 
-    return savedItems;
+    return {
+      savedItems: savedItems,
+      pagination: pagination
+    };
   }
 
   public async saveUniversity(id: number) {

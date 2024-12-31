@@ -49,7 +49,7 @@
         <div id="university_cards">
           <div class="mt-12 lg:mt-5">
             <simple-loader v-if="loading" class="text-center"/>
-            <university-list :universities="universities"/>
+            <university-list :universities="universities" :paginationData="paginationData"/>
           </div>
         </div>
       </div>
@@ -67,6 +67,7 @@ import TheFooter from '~/components/TheFooter.vue';
 import { UniversityService } from '~/core/services/university.service';
 import SimpleLoader from '~/components/ui/SimpleLoader.vue';
 import type { University } from '~/core/types/university.type';
+import type { Pagination } from '~/core/types/pagination.type';
 
 definePageMeta({
   layout: "main-layout"
@@ -76,34 +77,56 @@ const universities = ref<University[]>([]);
 const service = new UniversityService();
 const search = ref('');
 const loading = ref(false);
+const route = useRoute();
+const currentPage = ref<number>(route.query.page ? parseInt(route.query.page as string) : 1);
+const per_page = 16;
+const paginationData = ref<Pagination>({
+  total: 0,
+  per_page: per_page,
+  current_page: currentPage.value,
+});
 
 onMounted(async () => {
-  universities.value = await fetchUniversities({
-    per_page: 16
-  });  
+  await fetchUniversities({
+    per_page: per_page,
+    page: currentPage.value
+  });
+});
+
+onUpdated(async () => {
+  const check = route.query.page ? parseInt(route.query.page as string) : 1;
+  if (check !== currentPage.value) {
+    currentPage.value = parseInt(route.query.page as string);
+    await fetchUniversities({
+      per_page: per_page,
+      page: currentPage
+    });
+    return;
+  }
 });
 
 const fetchUniversities = async (params?: Object) => {
   loading.value = true;
 
-  const result = await service.fetchUniversities(params);
+  const {universities: result, pagination: pagination} = await service.fetchUniversities(params);
+  paginationData.value = pagination;
+  universities.value = result;
 
   loading.value = false;
-  return result;
 };
 
 const searchUniversities = async () => {
   if (search.value.length === 0) {
-    universities.value = await fetchUniversities({
-      per_page: 16
+    await fetchUniversities({
+      per_page: per_page
     });
 
     return;
   }
 
   if (search.value.length >= 3) {
-    universities.value = await fetchUniversities({
-      per_page: 16,
+    await fetchUniversities({
+      per_page: per_page,
       search: search.value
     });
   }
