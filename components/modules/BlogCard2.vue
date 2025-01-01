@@ -5,20 +5,23 @@
       <div class="opacity-50 w-1/2 text-center text-md tracking-tight xl:leading-none lg:w-full md:text-sm">Amerika Universitetlariga topshirish, to’liq grantni qo’lga kiritish, visa masalalari, hujjat topshirish, va boshqa mavzularda gaplashamiz.</div>
     </div>
     <div class="mt-7 flex items-start justify-between h-[650px] xl:flex-col xl:gap-5 xl:h-auto">
-      <div class="cursor-pointer w-[48%] xl:w-full xl:h-[350px] flex flex-col justify-end items-start h-full rounded-3xl bg-[url('/assets/images/main/blog-banner.png')] bg-cover xl:bg-center">
+      <div
+      class="w-[48%] xl:w-full xl:h-[350px] flex flex-col justify-end items-start h-full rounded-3xl bg-cover xl:bg-center"
+      :style="`background-image: url('${baseApiUrl + '/storage/' + blog?.image_link}');`"
+      >
         <div class="flex flex-col gap-12 w-[70%] bg-white p-5 rounded-tr-3xl rounded-bl-3xl xl:w-[40%] lg:w-full xl:gap-5 lg:rounded-tr-none lg:rounded-e-3xl">
-          <div class="mid-title text-ellipsis overflow-hidden whitespace-nowrap xl:text-lg sm:text-md">
-            Как поступить на магистратуру в Европе и учиться бесплатно
+          <div @click="gotoBlogItem" class="cursor-pointer mid-title text-ellipsis overflow-hidden whitespace-nowrap xl:text-lg sm:text-md">
+            {{ blog?.title }}
           </div>
           <div
-              @click="gotoBlog"
+              @click.stop="gotoBlog"
               @mouseover="isHoverToUniversBtn = true"
               @mouseleave="isHoverToUniversBtn = false"
               class="flex cursor-pointer"
           >
-            <div class="bg-primary-blue py-[12px] px-12 text-white rounded-full">
+            <RouterLink to="/blog" class="bg-primary-blue py-[12px] px-12 text-white rounded-full">
               Blog
-            </div>
+            </RouterLink>
             <div
                 id="arrow_btn"
                 :class="{'rotate-[405deg]': isHoverToUniversBtn}"
@@ -46,12 +49,30 @@
 </template>
 
 <script setup lang="ts">
+import { BlogService } from '~/core/services/blog.service';
+import { type Blog } from '~/core/types/blog.type';
+import { getBaseApiUrl } from '~/core/utils/apiUrl.util';
 
 const isHoverToUniversBtn = ref(false);
 const router = useRouter();
+const service = new BlogService();
+const blog = ref<Blog|null>(null);
+const baseApiUrl = getBaseApiUrl();
+
+onMounted( async () => {
+  await fetchLastBlog();
+});
 
 const gotoBlog = () => {
   router.push('/blog');
+}
+
+const gotoBlogItem = () => {
+  router.push('/blog/' + blog.value?.id);
+}
+
+const fetchLastBlog = async () => {
+  blog.value = await service.latestBlog();
 }
 
 </script>

@@ -48,7 +48,7 @@
 
         <div id="university_cards">
           <div class="mt-12 lg:mt-5">
-            <simple-loader v-if="loading" class="text-center"/>
+            <line-loader v-if="loading" class="text-center"/>
             <university-list :universities="universities" :paginationData="paginationData"/>
           </div>
         </div>
@@ -65,7 +65,7 @@
 import UniversityList from '~/components/main/UniversityList.vue';
 import TheFooter from '~/components/TheFooter.vue';
 import { UniversityService } from '~/core/services/university.service';
-import SimpleLoader from '~/components/ui/SimpleLoader.vue';
+import LineLoader from '~/components/ui/LineLoader.vue';
 import type { University } from '~/core/types/university.type';
 import type { Pagination } from '~/core/types/pagination.type';
 

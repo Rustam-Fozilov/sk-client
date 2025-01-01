@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="my-container">
+      <LineLoader v-if="loading"/>
       <div class="text-center mt-12 md:mt-5">
         <div class="title sm:mid-title">Blog</div>
         <p class="opacity-70 mt-3 md:mt-2">Пишем про языковые курсы за рубежом и поступление в заграничные вузы, а также изучение английского онлайн.</p>
@@ -28,7 +29,6 @@
       </div> -->
 
       <div class="mt-12 md:mt-5">
-        <simple-loader v-if="headerLoading" class="text-center"/>
         <BlogHeaderCard v-if="latestBlog" :blog="latestBlog"/>
       </div>
 
@@ -38,7 +38,6 @@
         </div>
 
         <div class="mt-12 md:mt-5">
-          <simple-loader v-if="mostViewedBlogs.length < 1" class="text-center"/>
           <BlogCarouselList v-if="mostViewedBlogs.length > 0" :blogs="mostViewedBlogs"/>
         </div>
       </div>
@@ -49,7 +48,6 @@
         </div>
 
         <div class="mt-12 md:mt-5">
-          <simple-loader v-if="loading" class="text-center"/>
           <BlogList :blogs="blogs" :pagination-data="paginationData"/>
         </div>
       </div>
@@ -67,7 +65,6 @@ import BlogList from '~/components/main/BlogList.vue';
 import BlogHeaderCard from '~/components/modules/BlogHeaderCard.vue';
 import { BlogService } from '~/core/services/blog.service';
 import { type Blog } from '~/core/types/blog.type';
-import SimpleLoader from '~/components/ui/SimpleLoader.vue';
 import { type Pagination } from '~/core/types/pagination.type';
 
 definePageMeta({
@@ -78,7 +75,6 @@ const blogs = ref<Blog[]>([]);
 const latestBlog = ref<Blog|null>(null);
 const mostViewedBlogs = ref<Blog[]>([]);
 const service = new BlogService();
-const headerLoading = ref<boolean>(false);
 const loading = ref<boolean>(false);
 const route = useRoute();
 const currentPage = ref<number>(route.query.page ? parseInt(route.query.page as string) : 1);
@@ -115,9 +111,7 @@ onUpdated(async () => {
 });
 
 const fetchLastBlog = async () => {
-  headerLoading.value = true;
   latestBlog.value = await service.latestBlog();
-  headerLoading.value = false;
 };
 
 const fetchMostViewedBlogs = async () => {

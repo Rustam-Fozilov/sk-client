@@ -4,9 +4,8 @@
       <div>Salom {{ me?.name }}</div>
     </div>
 
+    <line-loader v-if="loading" class="text-center"/>
     <div class="mt-12 md:mt-5">
-      <simple-loader v-if="loading" class="text-center"/>
-
       <div v-if="universities.length > 0 && !loading">
         <div class="mid-title mb-5">Universitetlar</div>
         <university-list :universities="universities" :pagination-data="paginationData" :pagination-view="blogs.length < 1"/>
@@ -28,7 +27,6 @@
 import UniversityList from '~/components/main/UniversityList.vue';
 import TheFooter from '~/components/TheFooter.vue';
 import { type University } from '~/core/types/university.type';
-import SimpleLoader from '~/components/ui/SimpleLoader.vue';
 import { type Pagination } from '~/core/types/pagination.type';
 import { type Blog } from '~/core/types/blog.type';
 import { UserService } from '~/core/services/user.service';
@@ -72,7 +70,7 @@ const route = useRoute();
 const { $getSessionItem } = useNuxtApp();
 const loading = ref(false);
 const currentPage = ref<number>(route.query.page ? parseInt(route.query.page as string) : 1);
-const perPage = 2;
+const perPage = 16;
 const me = JSON.parse($getSessionItem('me') ?? '{}');
 
 const paginationData = ref<Pagination>({

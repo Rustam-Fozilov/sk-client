@@ -11,8 +11,8 @@
       </div>
 
       <div>
-        <simple-loader v-if="loading" class="text-center"/>
-        <university-carousel-list :universities="universities"/>
+        <line-loader v-if="loading" class="text-center"/>
+        <university-carousel-list v-if="universities.length > 0" :universities="universities"/>
       </div>
     </div>
   </div>
@@ -22,7 +22,6 @@
 import type { University } from '~/core/types/university.type';
 import UniversityCarouselList from '../main/UniversityCarouselList.vue';
 import { UniversityService } from '~/core/services/university.service';
-import SimpleLoader from '~/components/ui/SimpleLoader.vue';
 
 const universities = ref<University[]>([]);
 const service = new UniversityService();
@@ -31,7 +30,7 @@ const loading = ref(false);
 const fetchUniversities = async () => {
   loading.value = true;
 
-  const {universities: result, pagination} = await service.fetchUniversities({
+  const {universities: result} = await service.fetchUniversities({
     per_page: 10,
   });
 
@@ -39,6 +38,8 @@ const fetchUniversities = async () => {
   loading.value = false;
 };
 
-await fetchUniversities();
+onMounted( async () => {
+  await fetchUniversities();
+});
 
 </script>

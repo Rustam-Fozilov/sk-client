@@ -29,7 +29,6 @@ defineProps({
   }
 });
 
-
 const windowWidth = ref<Number | any>(1920);
 const realWidth = ref<Number | any>(0);
 

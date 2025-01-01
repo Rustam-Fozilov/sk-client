@@ -12,7 +12,7 @@
         </div>
         <div v-else-if="historyList.length > 0 && !hideHistoryList" class="mt-5 opacity-50 md:mt-3">Avvalgi qidiruvlar</div>
         <div class="text-center w-full">
-          <SimpleLoader v-if="loading" width="25px" height="25px"/>
+          <SimpleLoader v-if="loading" width="25px" height="25px" class="mt-3"/>
         </div>
 
         <div v-if="data?.universities?.length === 0 && data?.blogs?.length === 0 && searchText.length >= 3" class="mt-5 w-full text-center opacity-50 md:mt-3">Hech qanday natija topilmadi</div>
