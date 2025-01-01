@@ -79,7 +79,7 @@ const search = ref('');
 const loading = ref(false);
 const route = useRoute();
 const currentPage = ref<number>(route.query.page ? parseInt(route.query.page as string) : 1);
-const per_page = 16;
+const per_page = 1;
 const paginationData = ref<Pagination>({
   total: 0,
   per_page: per_page,
@@ -96,10 +96,10 @@ onMounted(async () => {
 onUpdated(async () => {
   const check = route.query.page ? parseInt(route.query.page as string) : 1;
   if (check !== currentPage.value) {
-    currentPage.value = parseInt(route.query.page as string);
+    currentPage.value = check;
     await fetchUniversities({
       per_page: per_page,
-      page: currentPage
+      page: currentPage.value
     });
     return;
   }

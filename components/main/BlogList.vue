@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="realWidth > 0" class="flex gap-5 flex-wrap w-full">
+    <div v-if="realWidth > 0" class="flex gap-5 flex-wrap w-full sm:justify-center">
       <real-blog-card v-for="blog in blogs" :blog="blog" :width="`${realWidth}px`" :height="`${realWidth}px`"/>
     </div>
     <pagination :total="paginationData.total" :per_page="paginationData.per_page" :current_page="paginationData.current_page" v-if="blogs.length > 0"></pagination>

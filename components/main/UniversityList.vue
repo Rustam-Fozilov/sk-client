@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="realWidth > 0" class="flex gap-5 flex-wrap">
+    <div v-if="realWidth > 0" class="flex gap-5 flex-wrap lg:justify-center">
       <university-card v-for="university in universities" :university="university" :width="`${realWidth}px`" :height="`${realWidth}px`"/>
     </div>
     <pagination :total="paginationData.total" :per_page="paginationData.per_page" :current_page="paginationData.current_page" v-if="universities.length > 0 && paginationView"></pagination>

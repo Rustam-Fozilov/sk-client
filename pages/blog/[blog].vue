@@ -6,9 +6,7 @@
       </div>
 
       <div v-if="blog" class="mt-12 w-full bg-white rounded-3xl sm:rounded-2xl py-12 px-60 2xl:px-14 md:mt-5 sm:py-6 sm:px-6">
-        <div class="text-sm 2xl:mt-7 sm:mt-2 sm:text-rg">
-          {{ blog?.content }}
-        </div>
+        <div v-html="blog?.content" class="text-sm 2xl:mt-7 sm:mt-2 sm:text-rg"></div>
         <div class="w-full h-px mt-12 bg-black bg-opacity-20 sm:mt-5"></div>
         <div class="mt-7 flex gap-5 items-center sm:mt-5 sm:gap-3">
           <div @click="makeLiked" class="flex items-end gap-1 cursor-pointer">

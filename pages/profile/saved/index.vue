@@ -7,12 +7,12 @@
     <line-loader v-if="loading" class="text-center"/>
     <div class="mt-12 md:mt-5">
       <div v-if="universities.length > 0 && !loading">
-        <div class="mid-title mb-5">Universitetlar</div>
+        <div class="mid-title mb-5 sm:text-lg sm:mb-2">Universitetlar</div>
         <university-list :universities="universities" :pagination-data="paginationData" :pagination-view="blogs.length < 1"/>
       </div>
 
       <div v-if="blogs.length > 0 && !loading">
-        <div class="mid-title my-5">Blog</div>
+        <div class="mid-title my-5 sm:text-lg sm:my-2">Blog</div>
         <blog-list :blogs="blogs" :pagination-data="paginationData"/>
       </div>
       <div v-if="universities.length === 0 && blogs.length === 0 && !loading" class="text-center">Sizda hali saqlanganlar yo'q</div>
