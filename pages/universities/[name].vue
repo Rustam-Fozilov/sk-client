@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="my-container">
+      <line-loader v-if="loading" class="text-center"/>
       <div>
         <div class="my-16 text-center xl:my-10 sm:my-5">
           <div class="title sm:mid-title">
@@ -74,9 +75,12 @@ const route = useRoute();
 const router = useRouter();
 const id = Number(route.params.name);
 const baseApiUrl = getBaseApiUrl();
+const loading = ref<boolean>(false);
 
 onMounted(async () => {
+  loading.value = true;
   await fetchUniversity();
+  loading.value = false;
 
   isSaved.value = university.value?.is_saved;
   isLiked.value = university.value?.is_liked;

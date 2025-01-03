@@ -51,7 +51,8 @@
             </div>
           </div>
           <div class="mt-5">
-            <button :disabled="loading" type="submit" class="bg-soft-blue disabled:cursor-not-allowed w-full font-tt-medium text-white rounded-lg px-5 py-3">
+            <button :disabled="loading" type="submit" class="bg-soft-blue flex items-center justify-center gap-2 disabled:cursor-not-allowed w-full font-tt-medium text-white rounded-lg px-5 py-3">
+              <span v-if="loading" class="form_loader"></span>
               Yuborish
             </button>
           </div>
@@ -95,3 +96,26 @@ const submitForm = async () => {
 };
 
 </script>
+
+<style scoped>
+
+.form_loader {
+  width: 15px;
+  height: 15px;
+  border: 1px solid #fff;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 0.4s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+</style>

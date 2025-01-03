@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="my-container">
+      <line-loader v-if="loading" class="text-center"/>
       <div class="mt-12 md:mt-5">
         <BlogHeaderCard v-if="blog" :blog="blog"/>
       </div>
@@ -56,9 +57,12 @@ const route = useRoute();
 const router = useRouter();
 const id = Number(route.params.blog);
 const { $getSessionItem } = useNuxtApp();
+const loading = ref<boolean>(false);
 
 onMounted(async () => {
+  loading.value = true;
   await fetchBlog();
+  loading.value = false;
 
   isSaved.value = blog.value?.is_saved;
   isLiked.value = blog.value?.is_liked;

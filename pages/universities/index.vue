@@ -79,7 +79,7 @@ const search = ref('');
 const loading = ref(false);
 const route = useRoute();
 const currentPage = ref<number>(route.query.page ? parseInt(route.query.page as string) : 1);
-const per_page = 1;
+const per_page = 16;
 const paginationData = ref<Pagination>({
   total: 0,
   per_page: per_page,
