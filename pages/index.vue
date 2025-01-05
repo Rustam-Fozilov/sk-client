@@ -100,9 +100,16 @@ useHead({
     {name: 'viewport', content: 'width=device-width, initial-scale=1.0'},
     {name: 'content-type', content: 'text/html; charset=utf-8'},
     {name: 'application-name', content: 'Surish Kerak | Amerika universitetlariga kirish va to\'liq grant yutish bo\'yicha batafsil qo\'llanma'},
+    {property: 'og:type', content: 'website'},
     {property: 'og:title', content: 'Surish Kerak | Amerika universitetlariga kirish va to\'liq grant yutish bo\'yicha batafsil qo\'llanma'},
     {property: 'og:description', content: 'Surish Kerak | Amerika universitetlariga kirish va to\'liq grant yutish bo\'yicha batafsil qo\'llanma'},
-    {property: 'og:url', content: 'https://surish-kerak.uz/og.png'},
+    {property: 'og:url', content: 'https://surish-kerak.uz'},
+    {property: 'og:image', content: 'https://surish-kerak.uz/images/og.jpg'},
+    {property: 'og:image:secure_url', content: 'https://surish-kerak.uz/images/og.jpg'},
+    {property: 'og:image:type', content: 'image/jpg'},
+    {property: 'og:image:width', content: '400'},
+    {property: 'og:image:height', content: '300'},
+    {property: 'og:image:alt', content: 'website'},
   ],
   link: [
     {rel: 'icon', href: '/favicon.ico'}
