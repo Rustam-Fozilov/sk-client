@@ -4,7 +4,9 @@
       <LineLoader v-if="loading"/>
       <div class="text-center mt-12 md:mt-5">
         <div class="title sm:mid-title">Blog</div>
-        <p class="opacity-70 mt-3 md:mt-2">Пишем про языковые курсы за рубежом и поступление в заграничные вузы, а также изучение английского онлайн.</p>
+        <div class="opacity-70 mt-3 md:mt-2">
+          Chet eldagi til kurslari va xorijiy universitetlarga kirish, shuningdek, ingliz tilini o'rganish haqida gaplashamiz
+        </div>
       </div>
 
       <!-- <div class="flex justify-center mt-7 xl:hidden">

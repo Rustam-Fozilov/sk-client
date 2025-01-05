@@ -23,7 +23,7 @@
               <div @click="openSearchModal" class="cursor-pointer">Qidiruv</div>
               <RouterLink @click="isNavOpened = false" to="/login">Kirish</RouterLink>
             </div>
-            <a href="/" class="flex items-center gap-3 md:mt-3">
+            <a href="https://t.me/skdistrict" target="_blank" class="flex items-center gap-3 md:mt-3">
               <div>SK Community</div>
               <arrow-white-icon width="20px"/>
             </a>
@@ -34,8 +34,10 @@
             <div>
               hello@surish-kerak.uz
             </div>
-            <div>
-              FB INSTA TG
+            <div class="flex gap-2">
+              <div>FB</div>
+              <div>INSTA</div>
+              <a href="https://t.me/skdistrict" target="_blank" >TG</a>
             </div>
           </div>
         </div>

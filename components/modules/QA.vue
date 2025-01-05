@@ -7,10 +7,10 @@
         </div>
         <div class="font-tt-regular opacity-50 leading-snug">
           Ahil hamjamiyatimiz a’zolari savolingizga javob berishadi. Yoki siz ham jamiyatimiz a’zosiga aylaning va o’z bilimingizni ulashing. <span><a
-            href="" class="underline">Telegram</a></span> guruhimizga qo’shiling.
+            href="https://t.me/skdistrict" target="_blank" class="underline">Telegram</a></span> guruhimizga qo’shiling.
         </div>
         <div>
-          <btn-primary>
+          <btn-primary @clicked="gotoCommunity">
             <template #btn-primary>
               Savol yo'llash
             </template>
@@ -54,5 +54,9 @@
 </template>
 
 <script setup>
+
+const gotoCommunity = () => {
+  window.open('https://t.me/skdistrict', '_blank');
+}
 
 </script>

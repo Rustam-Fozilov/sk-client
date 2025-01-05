@@ -10,17 +10,12 @@
       </div>
 
       <div>
-        <div class="font-tt-medium text-sm sm:text-rg">t.me/@skbot</div>
+        <div class="font-tt-medium text-sm sm:text-rg">t.me/@skbot <span class="opacity-50 text-rg">(qurilishda)</span></div>
         <div class="opacity-50">Taklif va shikoyatlar uchun</div>
       </div>
 
       <div>
-        <div class="font-tt-medium text-sm sm:text-rg">t.me/@skprivat</div>
-        <div class="opacity-50">Shaxsiy chat</div>
-      </div>
-
-      <div>
-        <div class="font-tt-medium text-sm sm:text-rg">t.me/@skcommunity</div>
+        <div class="font-tt-medium text-sm sm:text-rg">t.me/@skdistrict</div>
         <div class="opacity-50">Kamyuniti</div>
       </div>
     </div>
@@ -28,7 +23,10 @@
     <div class="bg-white p-12 sm:p-6 rounded-2xl flex justify-between items-start lg:flex-col lg:gap-5">
       <div>
         <div class="mid-title sm:text-lg">Biz bilan bog'laning</div>
-        <div class="w-[25rem] mt-7 sm:mt-4 leading-none sm:w-full">Вы можете написать нам по любому интересующему вас вопросу: от обучения до сотрудничества</div>
+        <div class="w-[25rem] mt-7 sm:mt-4 leading-none sm:w-full">
+          Sizni qiziqtirgan har qanday savol bo'yicha bizga yozishingiz mumkin: treningdan hamkorlikka qadar,
+          yozing shunchaki gaplashamiz
+        </div>
       </div>
 
       <form @submit.prevent="submitForm" class="md:w-full">

@@ -21,7 +21,7 @@
 .line_loader::after {
   content: '';
   width: 100px;
-  height: 3px;
+  height: 2.5px;
   background: #007AFF;
   position: absolute;
   top: 0;

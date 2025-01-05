@@ -161,15 +161,15 @@ const gotoBlog = async (id: number) => {
 };
 
 const removeUniverHistory = async (id: number) => {
-  await service.removeHistory('university', id);
-
   universityHistoryList.value = universityHistoryList.value.filter((item: any) => item.id !== id);
+
+  await service.removeHistory('university', id);
 };
 
 const removeBlogHistory = async (id: number) => {
-  await service.removeHistory('blog', id);
-
   blogHistoryList.value = blogHistoryList.value.filter((item: any) => item.id !== id);
+
+  await service.removeHistory('blog', id);
 };
 
 </script>

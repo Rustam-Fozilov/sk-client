@@ -4,7 +4,7 @@
       <div class="title text-center lg:mid-title">
         Jamiyatimizga qo'shil
       </div>
-      <div class="mt-7">
+      <div @click="gotoCommunity" class="mt-7">
         <div class="w-full bg-soft-blue rounded-full p-8 sm:p-6 cursor-pointer text-white title lg:mid-title sm:text-lg flex sm:flex-nowrap sm:text-nowrap items-center justify-center gap-5 sm:gap-3 hover:bg-opacity-90 transition duration-300">
           <div class="sm:w-6">
             <tg-icon width="100%"/>
@@ -22,7 +22,7 @@
         <div class="flex gap-5">
           <a href="">FB</a>
           <a href="">INSTA</a>
-          <a href="">TG</a>
+          <a href="https://t.me/skdistrict" target="_blank">TG</a>
         </div>
       </div>
 
@@ -46,5 +46,9 @@
 <script setup lang="ts">
 import TgIcon from './ui/TgIcon.vue';
 import TheLogo from './ui/TheLogo.vue';
+
+const gotoCommunity = () => {
+  window.open('https://t.me/skdistrict', '_blank');
+}
 
 </script>

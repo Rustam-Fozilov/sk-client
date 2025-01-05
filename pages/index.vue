@@ -91,6 +91,24 @@ definePageMeta({
   layout: "main-layout"
 });
 
+useHead({
+  title: 'Surish Kerak | Amerika universitetlariga kirish va to\'liq grant yutish bo\'yicha batafsil qo\'llanma',
+  meta: [
+    {name: 'description', content: 'Surish Kerak | Amerika universitetlariga kirish va to\'liq grant yutish bo\'yicha batafsil qo\'llanma'},
+    {name: 'robots', content: 'index, follow'},
+    {name: 'keywords', content: 'Surish Kerak | Amerika universitetlariga kirish va to\'liq grant yutish bo\'yicha batafsil qo\'llanma'},
+    {name: 'viewport', content: 'width=device-width, initial-scale=1.0'},
+    {name: 'content-type', content: 'text/html; charset=utf-8'},
+    {name: 'application-name', content: 'Surish Kerak | Amerika universitetlariga kirish va to\'liq grant yutish bo\'yicha batafsil qo\'llanma'},
+    {property: 'og:title', content: 'Surish Kerak | Amerika universitetlariga kirish va to\'liq grant yutish bo\'yicha batafsil qo\'llanma'},
+    {property: 'og:description', content: 'Surish Kerak | Amerika universitetlariga kirish va to\'liq grant yutish bo\'yicha batafsil qo\'llanma'},
+    {property: 'og:url', content: 'https://surish-kerak.uz/og.png'},
+  ],
+  link: [
+    {rel: 'icon', href: '/favicon.ico'}
+  ],
+});
+
 const isHoverToUniversBtn = ref(false);
 const router = useRouter();
 const modalService = new ModalService();
