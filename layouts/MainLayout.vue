@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class="absolute top-0 z-[100000] text-center w-full bg-soft-blue font-tt-medium py-1">Sayt ishlab chiqishda, tez orada stabil holatga tushadi</div>
     <the-navbar/>
 
     <div class="pt-24">
