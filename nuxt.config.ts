@@ -17,14 +17,11 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      baseApiUrl: process.env.NUXT_BASE_API_URL,
+      baseApiUrl: process.env.NUXT_BASE_API_URL ? process.env.NUXT_BASE_API_URL : 'https://api.surish-kerak.uz',
     },
   },
 
   modules: ["vue3-carousel-nuxt", '@nuxt/ui'],
-  devServer: {
-    host: '0.0.0.0'
-  },
 
   colorMode: {
     preference: 'light'
