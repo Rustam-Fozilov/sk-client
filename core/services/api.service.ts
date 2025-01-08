@@ -2,7 +2,7 @@ import axios from "axios";
 import { getBaseApiUrl } from "../utils/apiUrl.util";
 
 export class ApiService {
-  private baseUrl: string = getBaseApiUrl();
+  private baseUrl: string = 'https://api.surish-kerak.uz';
 
   constructor(baseUrl: string = this.baseUrl) {
     this.baseUrl = baseUrl;
