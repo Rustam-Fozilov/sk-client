@@ -13,11 +13,10 @@ export class ApiService {
   }
 
   public async get(url: string, params?: object, headers?: object) {
-    console.log(this.baseUrl);
     const token = sessionStorage.getItem('authToken');
     const authHeader = token ? { Authorization: `Bearer ${token}` } : {};
 
-    return await axios.get(this.baseUrl + url, {
+    return await axios.get('https://api.surish-kerak.uz' + url, {
       params: params,
       headers: {
         ...authHeader,
@@ -31,7 +30,7 @@ export class ApiService {
     const authHeader = token ? { Authorization: `Bearer ${token}` } : {};
 
     return await axios
-      .post(this.baseUrl + url, params, {
+      .post('https://api.surish-kerak.uz' + url, params, {
         headers: {
           ...authHeader,
           ...headers,
@@ -44,7 +43,7 @@ export class ApiService {
     const authHeader = token ? { Authorization: `Bearer ${token}` } : {};
 
     return await axios
-      .put(this.baseUrl + url, params, {
+      .put('https://api.surish-kerak.uz' + url, params, {
         headers: {
           ...authHeader,
           ...headers,
@@ -57,7 +56,7 @@ export class ApiService {
     const authHeader = token ? { Authorization: `Bearer ${token}` } : {};
 
     return await axios
-      .delete(this.baseUrl + url, {
+      .delete('https://api.surish-kerak.uz' + url, {
         params: params,
         headers: {
           ...authHeader,
