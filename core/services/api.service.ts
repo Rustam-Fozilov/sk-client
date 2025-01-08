@@ -13,6 +13,7 @@ export class ApiService {
   }
 
   public async get(url: string, params?: object, headers?: object) {
+    console.log(this.baseUrl);
     const token = sessionStorage.getItem('authToken');
     const authHeader = token ? { Authorization: `Bearer ${token}` } : {};
 
