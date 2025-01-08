@@ -17,7 +17,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      baseApiUrl: process.env.NUXT_BASE_API_URL ? process.env.NUXT_BASE_API_URL : 'https://api.surish-kerak.uz',
+      baseApiUrl: 'https://api.surish-kerak.uz',
     },
   },
 
