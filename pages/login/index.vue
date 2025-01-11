@@ -8,7 +8,7 @@
         Kodni kiriting
       </div>
       <div class="text-center">
-        <span><a href="" target="_blank" class="underline underline-offset-4 font-tt-regular">@skbot</a></span> telegram botiga kiring va 1 daqiqalik kodingizni <br> oling.
+        <span><a href="https://t.me/skerak_bot" target="_blank" class="underline underline-offset-4 font-tt-regular">@skerak_bot</a></span> telegram botiga kiring va 1 daqiqalik kodingizni <br> oling.
       </div>
       <div class="w-80">
         <div class="w-full flex gap-x-2.5">
