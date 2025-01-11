@@ -41,7 +41,7 @@
         <div class="flex w-full h-full justify-between items-center sm:flex-col sm:gap-5">
           <div
           @click="gotoBlogItem(blogs[0]?.id)"
-          class="w-[48%] h-[98%] rounded-2xl sm:w-full sm:h-[250px] cursor-pointer"
+          class="w-[48%] h-[98%] bg-cover rounded-2xl sm:w-full sm:h-[250px] cursor-pointer"
           :style="`background-image: url('${baseApiUrl + '/storage/' + blogs[0]?.image_link}');`"
           >
             <div class="flex flex-col justify-end w-full h-full p-4">
@@ -51,7 +51,7 @@
 
           <div
           @click="gotoBlogItem(blogs[1]?.id)"
-          class="w-[48%] h-[98%] rounded-2xl sm:w-full sm:h-[250px] cursor-pointer"
+          class="w-[48%] h-[98%] bg-cover rounded-2xl sm:w-full sm:h-[250px] cursor-pointer"
           :style="`background-image: url('${baseApiUrl + '/storage/' + blogs[1]?.image_link}');`"
           >
             <div class="flex flex-col justify-end w-full h-full p-4">
@@ -63,7 +63,7 @@
         <div class="flex w-full h-full justify-between items-center sm:flex-col sm:gap-5">
           <div
           @click="gotoBlogItem(blogs[2]?.id)"
-          class="w-[48%] h-[98%] rounded-2xl sm:w-full sm:h-[250px] cursor-pointer"
+          class="w-[48%] h-[98%] bg-cover rounded-2xl sm:w-full sm:h-[250px] cursor-pointer"
           :style="`background-image: url('${baseApiUrl + '/storage/' + blogs[2]?.image_link}');`"
           >
             <div class="flex flex-col justify-end w-full h-full p-4">
@@ -73,7 +73,7 @@
 
           <div
           @click="gotoBlogItem(blogs[3]?.id)"
-          class="w-[48%] h-[98%] rounded-2xl sm:w-full sm:h-[250px] cursor-pointer"
+          class="w-[48%] h-[98%] bg-cover rounded-2xl sm:w-full sm:h-[250px] cursor-pointer"
           :style="`background-image: url('${baseApiUrl + '/storage/' + blogs[3]?.image_link}');`"
           >
             <div class="flex flex-col justify-end w-full h-full p-4">
