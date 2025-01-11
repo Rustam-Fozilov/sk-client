@@ -19,8 +19,7 @@
         </div>
       </div>
       <RouterLink :to="`/blog/${blog.id}`" class="sub-title truncate-ellipsis cursor-pointer text-start">{{ blog.title }}</RouterLink>
-      <div class="truncate-ellipsis-3 mt-5 opacity-60 text-start">
-        {{ blog.content }}
+      <div v-html="blog.content" class="truncate-ellipsis-3 mt-5 opacity-60 text-start">
       </div>
       <div class="opacity-60 mt-3 text-start">{{ blog.created_at }}</div>
     </div>
