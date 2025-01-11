@@ -5,7 +5,7 @@
       <div class="text-center mt-12 md:mt-5">
         <div class="title sm:mid-title">Blog</div>
         <div class="opacity-70 mt-3 md:mt-2">
-          Chet eldagi til kurslari va xorijiy universitetlarga kirish, shuningdek, ingliz tilini o'rganish haqida gaplashamiz
+          Chet eldagi universitetlarga kirish va til kurslari, shuningdek, ingliz tilini o'rganish haqida gaplashamiz
         </div>
       </div>
 
