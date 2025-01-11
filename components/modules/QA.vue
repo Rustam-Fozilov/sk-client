@@ -21,31 +21,31 @@
       <div class="w-1/2 flex flex-col gap-7 lg:w-full sm:gap-5">
         <div class="bg-white px-7 py-12 rounded-3xl" style="filter: drop-shadow(0px 5px 25px rgba(0, 0, 0, 0.05));">
           <div class="flex gap-2 items-center font-tt-medium">
-            <img class="w-12 h-12 rounded-md object-cover" src="@/assets/images/main/title.png" alt="Avatar">
-            Tom Hardy
+            <img class="w-12 h-12 rounded-md object-cover" src="@/assets/images/main/pr1.jpg" alt="Avatar">
+            Sevara
           </div>
           <div class="mt-7 sub-title font-tt-regular">
-            Хочу сказать, что курс выстроен очень круто. Я учусь в аспирантуре на педагогике, поэтому для меня особенно было интересно посмотреть как устроено обучение и я в восторге
+            Universitet stipendiya yoki grantlarni berishda oilaning daromadi, aktivlari yoki boshqa omillarni hisobga oladimi?
           </div>
         </div>
 
         <div class="bg-white px-7 py-12 rounded-3xl" style="filter: drop-shadow(0px 5px 25px rgba(0, 0, 0, 0.05));">
           <div class="flex gap-2 items-center font-tt-medium">
-            <img class="w-12 h-12 rounded-md object-cover" src="@/assets/images/main/title.png" alt="Avatar">
-            Tom Hardy
+            <img class="w-12 h-12 rounded-md object-cover" src="@/assets/images/main/pr2.jpg" alt="Avatar">
+            Jasur
           </div>
           <div class="mt-7 sub-title font-tt-regular">
-            Хочу сказать, что курс выстроен очень круто. Я учусь в аспирантуре на педагогике, поэтому для меня особенно было интересно посмотреть как устроено обучение и я в восторге
+            Need based stipendiyalar har yili yangilanadimi? Agar shunday bo‘lsa, yangilash uchun qanday talablar mavjud?
           </div>
         </div>
 
         <div class="bg-white px-7 py-12 rounded-3xl" style="filter: drop-shadow(0px 5px 25px rgba(0, 0, 0, 0.05));">
           <div class="flex gap-2 items-center font-tt-medium">
-            <img class="w-12 h-12 rounded-md object-cover" src="@/assets/images/main/title.png" alt="Avatar">
-            Tom Hardy
+            <img class="w-12 h-12 rounded-md object-cover" src="@/assets/images/main/pr3.jpg" alt="Avatar">
+            Bekzod
           </div>
           <div class="mt-7 sub-title font-tt-regular">
-            Хочу сказать, что курс выстроен очень круто. Я учусь в аспирантуре на педагогике, поэтому для меня особенно было интересно посмотреть как устроено обучение и я в восторге
+            Universitet stipendiyasi to‘liq yoki qisman o‘qishni qoplaydimi, shuningdek, xona va ovqat kabi boshqa xarajatlarni ham o‘z ichiga oladimi?
           </div>
         </div>
       </div>
