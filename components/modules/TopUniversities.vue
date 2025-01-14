@@ -31,6 +31,8 @@ const fetchUniversities = async () => {
   loading.value = true;
 
   const {universities: result} = await service.fetchUniversities({
+    order_by: 'id',
+    order_direction: 'asc',
     per_page: 10,
   });
 
