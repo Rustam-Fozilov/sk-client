@@ -2,11 +2,7 @@ import axios from "axios";
 import { getBaseApiUrl } from "../utils/apiUrl.util";
 
 export class ApiService {
-  private baseUrl: string = 'https://api.surish-kerak.uz';
-
-  constructor(baseUrl: string = this.baseUrl) {
-    this.baseUrl = baseUrl;
-  }
+  public baseUrl: string = 'https://api.surish-kerak.uz';
 
   public setBaseUrl(baseUrl: string) {
     this.baseUrl = baseUrl;
@@ -16,7 +12,7 @@ export class ApiService {
     const token = sessionStorage.getItem('authToken');
     const authHeader = token ? { Authorization: `Bearer ${token}` } : {};
 
-    return await axios.get('https://api.surish-kerak.uz' + url, {
+    return await axios.get(this.baseUrl + url, {
       params: params,
       headers: {
         ...authHeader,
