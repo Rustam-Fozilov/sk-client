@@ -1,4 +1,7 @@
 <template>
+  <Head>
+    <Title>Surish Kerak | {{ university?.name }}</title>
+  </Head>
   <div>
     <div class="my-container">
       <line-loader v-if="loading" class="text-center"/>
@@ -62,6 +65,18 @@ import { getBaseApiUrl } from '~/core/utils/apiUrl.util';
 
 definePageMeta({
   layout: "main-layout",
+});
+
+useSeoMeta({
+  ogTitle: 'Surish Kerak | Universitetlar',
+  description: 'Surish Kerak | Universitetlar',
+  ogDescription: 'Surish Kerak | Universitetlar',
+  ogImage: 'https://surish-kerak.uz/images/og.jpg',
+  ogUrl: 'https://surish-kerak.uz',
+  ogType: 'website',
+  robots: 'index, follow',
+  keywords: 'Surish Kerak, Universitetlar, Stanford, Stipendiya, Kirish, Qabul',
+  applicationName: 'Surish Kerak | Universitetlar',
 });
 
 const { $getSessionItem } = useNuxtApp();

@@ -91,56 +91,17 @@ definePageMeta({
   layout: "main-layout"
 });
 
-useHead({
+useSeoMeta({
   title: 'Surish Kerak | Amerika universitetlariga kirish va to\'liq grant yutish bo\'yicha batafsil qo\'llanma',
-  meta: [
-    {name: 'description', content: 'Surish Kerak | Amerika universitetlariga kirish va to\'liq grant yutish bo\'yicha batafsil qo\'llanma'},
-    {name: 'robots', content: 'index, follow'},
-    {name: 'keywords', content: 'Surish Kerak | Amerika universitetlariga kirish va to\'liq grant yutish bo\'yicha batafsil qo\'llanma'},
-    {name: 'viewport', content: 'width=device-width, initial-scale=1.0'},
-    {name: 'content-type', content: 'text/html; charset=utf-8'},
-    {name: 'application-name', content: 'Surish Kerak | Amerika universitetlariga kirish va to\'liq grant yutish bo\'yicha batafsil qo\'llanma'},
-    {property: 'og:type', content: 'website'},
-    {property: 'og:title', content: 'Surish Kerak | Amerika universitetlariga kirish va to\'liq grant yutish bo\'yicha batafsil qo\'llanma'},
-    {property: 'og:description', content: 'Surish Kerak | Amerika universitetlariga kirish va to\'liq grant yutish bo\'yicha batafsil qo\'llanma'},
-    {property: 'og:url', content: 'https://surish-kerak.uz'},
-    {property: 'og:image', content: 'https://surish-kerak.uz/images/og.jpg'},
-    {property: 'og:image:secure_url', content: 'https://surish-kerak.uz/images/og.jpg'},
-    {property: 'og:image:type', content: 'image/jpg'},
-    {property: 'og:image:width', content: '400'},
-    {property: 'og:image:height', content: '300'},
-    {property: 'og:image:alt', content: 'website'},
-  ],
-  link: [
-    {rel: 'icon', href: '/favicon.ico'}
-  ],
-  script: [
-    {src: 'https://www.googletagmanager.com/gtag/js?id=G-CGR30YJZR7', async: true},
-    {innerHTML: `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-CGR30YJZR7');
-    `,tagPosition: 'head'
-    },
-    {innerHTML: `
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-NK3FMXJN');
-    `,tagPosition: 'head'
-    },
-  ],
-  noscript: [
-    {body: true, innerHTML: `
-        // Google Tag Manager (noscript)
-        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NK3FMXJN" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-        // End Google Tag Manager (noscript)
-    `, tagPosition: 'bodyOpen'
-    },
-  ]
+  ogTitle: 'Surish Kerak | Amerika universitetlariga kirish va to\'liq grant yutish bo\'yicha batafsil qo\'llanma',
+  description: 'Surish Kerak | Amerika universitetlariga kirish va to\'liq grant yutish bo\'yicha batafsil qo\'llanma',
+  ogDescription: 'Surish Kerak | Amerika universitetlariga kirish va to\'liq grant yutish bo\'yicha batafsil qo\'llanma',
+  ogImage: 'https://surish-kerak.uz/images/og.jpg',
+  ogUrl: 'https://surish-kerak.uz',
+  ogType: 'website',
+  robots: 'index, follow',
+  keywords: 'Surish Kerak, Amerika universitetlariga kirish, grant yutish, batafsil qo\'llanma',
+  applicationName: 'Surish Kerak | Amerika universitetlariga kirish va to\'liq grant yutish bo\'yicha batafsil qo\'llanma',
 });
 
 const isHoverToUniversBtn = ref(false);

@@ -73,6 +73,19 @@ definePageMeta({
   layout: "main-layout"
 });
 
+useSeoMeta({
+  title: 'Surish Kerak | Blog',
+  ogTitle: 'Surish Kerak | Blog',
+  description: 'Surish Kerak | Blog',
+  ogDescription: 'Surish Kerak | Blog',
+  ogImage: 'https://surish-kerak.uz/images/og.jpg',
+  ogUrl: 'https://surish-kerak.uz',
+  ogType: 'website',
+  robots: 'index, follow',
+  keywords: 'Surish Kerak, Universitetlar, Stanford, Stipendiya, Kirish, Qabul',
+  applicationName: 'Surish Kerak | Blog',
+});
+
 const blogs = ref<Blog[]>([]);
 const latestBlog = ref<Blog|null>(null);
 const mostViewedBlogs = ref<Blog[]>([]);

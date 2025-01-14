@@ -1,4 +1,7 @@
 <template>
+  <Head>
+    <Title>Surish Kerak | {{ blog?.title }}</title>
+  </Head>
   <div>
     <div class="my-container">
       <line-loader v-if="loading" class="text-center"/>
@@ -46,6 +49,18 @@ import { BlogService } from '~/core/services/blog.service';
 
 definePageMeta({
   layout: "main-layout"
+});
+
+useSeoMeta({
+  ogTitle: 'Surish Kerak | Blog',
+  description: 'Surish Kerak | Blog',
+  ogDescription: 'Surish Kerak | Blog',
+  ogImage: 'https://surish-kerak.uz/images/og.jpg',
+  ogUrl: 'https://surish-kerak.uz',
+  ogType: 'website',
+  robots: 'index, follow',
+  keywords: 'Surish Kerak, Universitetlar, Stanford, Stipendiya, Kirish, Qabul',
+  applicationName: 'Surish Kerak | Blog',
 });
 
 const isSaved = ref<boolean|undefined>(false);

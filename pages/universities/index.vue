@@ -73,6 +73,19 @@ definePageMeta({
   layout: "main-layout"
 });
 
+useSeoMeta({
+  title: 'Surish Kerak | Universitetlar',
+  ogTitle: 'Surish Kerak | Universitetlar',
+  description: 'Surish Kerak | Universitetlar',
+  ogDescription: 'Surish Kerak | Universitetlar',
+  ogImage: 'https://surish-kerak.uz/images/og.jpg',
+  ogUrl: 'https://surish-kerak.uz',
+  ogType: 'website',
+  robots: 'index, follow',
+  keywords: 'Surish Kerak, Universitetlar, Stanford, Stipendiya, Kirish, Qabul',
+  applicationName: 'Surish Kerak | Universitetlar',
+});
+
 const universities = ref<University[]>([]);
 const service = new UniversityService();
 const search = ref('');

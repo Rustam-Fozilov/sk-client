@@ -36,6 +36,19 @@ definePageMeta({
   layout: "main-layout"
 });
 
+useSeoMeta({
+  title: 'Surish Kerak | Profil',
+  ogTitle: 'Surish Kerak | Profil',
+  description: 'Surish Kerak | Amerika universitetlariga kirish va to\'liq grant yutish bo\'yicha batafsil qo\'llanma',
+  ogDescription: 'Surish Kerak | Amerika universitetlariga kirish va to\'liq grant yutish bo\'yicha batafsil qo\'llanma',
+  ogImage: 'https://surish-kerak.uz/images/og.jpg',
+  ogUrl: 'https://surish-kerak.uz',
+  ogType: 'website',
+  robots: 'index, follow',
+  keywords: 'Surish Kerak, Amerika universitetlariga kirish, grant yutish, batafsil qo\'llanma',
+  applicationName: 'Surish Kerak | Profil',
+});
+
 onMounted(async () => {
   if (!$getSessionItem('authToken')) {
     router.push('/login');
