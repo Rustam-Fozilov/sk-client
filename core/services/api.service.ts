@@ -3,6 +3,7 @@ import { getBaseApiUrl } from "../utils/apiUrl.util";
 
 export class ApiService {
   public baseUrl: string = 'https://api.surish-kerak.uz';
+  // public baseUrl: string = 'http://localhost:8005';
 
   public setBaseUrl(baseUrl: string) {
     this.baseUrl = baseUrl;
@@ -26,7 +27,7 @@ export class ApiService {
     const authHeader = token ? { Authorization: `Bearer ${token}` } : {};
 
     return await axios
-      .post('https://api.surish-kerak.uz' + url, params, {
+      .post(this.baseUrl + url, params, {
         headers: {
           ...authHeader,
           ...headers,
@@ -39,7 +40,7 @@ export class ApiService {
     const authHeader = token ? { Authorization: `Bearer ${token}` } : {};
 
     return await axios
-      .put('https://api.surish-kerak.uz' + url, params, {
+      .put(this.baseUrl + url, params, {
         headers: {
           ...authHeader,
           ...headers,
@@ -52,7 +53,7 @@ export class ApiService {
     const authHeader = token ? { Authorization: `Bearer ${token}` } : {};
 
     return await axios
-      .delete('https://api.surish-kerak.uz' + url, {
+      .delete(this.baseUrl + url, {
         params: params,
         headers: {
           ...authHeader,
