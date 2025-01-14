@@ -17,6 +17,9 @@ import SearchModal from "@/components/modals/SearchModal.vue";
 import { ModalService } from "~/core/services/modal.service";
 
 useHead({
+  meta: [
+    {name: 'google-site-verification', content: 'rmRmFqpLMNyoEXn8lz1LAIwZMegmH'}
+  ],
   script: [
     {src: 'https://www.googletagmanager.com/gtag/js?id=G-CGR30YJZR7', async: true},
     {innerHTML: `
