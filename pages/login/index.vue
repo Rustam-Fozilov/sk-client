@@ -21,6 +21,7 @@
             @keydown.backspace="handleBackspace(index, $event)"
             @keydown.right="focusNext"
             @keydown.left="focusPrevious"
+            @paste="handleCtrlV"
             maxlength="1"
             pattern="\\d?"
             type="text"
@@ -139,6 +140,19 @@ const handleInput = (index: number) => {
 const handleBackspace = (index: number, event: KeyboardEvent) => {
   if (event.key === "Backspace" && code.value[index] === "" && index > 0) {
     inputs.value[index - 1]?.focus();
+  }
+};
+
+const handleCtrlV = (event: ClipboardEvent) => {
+  const clipboardData = event.clipboardData?.getData('text');
+  const clipboardArray = clipboardData?.split('');
+
+  if (clipboardArray) {
+    for (let i = 0; i < clipboardArray.length; i++) {
+      if (i < code.value.length) {
+        code.value[i] = clipboardArray[i];
+      }
+    }
   }
 };
 
