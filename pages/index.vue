@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="my-container">
-<!--      TOP HEADER-->
       <div class="flex justify-between mt-7 gap-2 2xls:flex-col 2xl:items-center">
         <div class="title">
           <div class="flex items-center gap-2 mt-[102px] 2xls:text-center 2xls:justify-center md:mt-7">

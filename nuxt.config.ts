@@ -15,12 +15,6 @@ export default defineNuxtConfig({
     },
   },
 
-  runtimeConfig: {
-    public: {
-      baseApiUrl: 'https://api.surish-kerak.uz',
-    },
-  },
-
   modules: ["vue3-carousel-nuxt", '@nuxt/ui'],
 
   colorMode: {
