@@ -2,8 +2,8 @@ import axios from "axios";
 import { getBaseApiUrl } from "../utils/apiUrl.util";
 
 export class ApiService {
-  public baseUrl: string = 'https://api.surish-kerak.uz';
-  // public baseUrl: string = 'http://localhost:8005';
+  // public baseUrl: string = 'https://api.surish-kerak.uz';
+  public baseUrl: string = getBaseApiUrl();
 
   public setBaseUrl(baseUrl: string) {
     this.baseUrl = baseUrl;
