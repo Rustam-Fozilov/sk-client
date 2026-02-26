@@ -39,6 +39,10 @@
           <RouterLink to="/contact">Kontaktlar</RouterLink>
         </div>
       </div>
+
+      <div class="text-rg">
+        Developed by <a target="_blank" href="https://www.instagram.com/asapgroupuz">ASAP Group</a>
+      </div>
     </div>
   </div>
 </template>
